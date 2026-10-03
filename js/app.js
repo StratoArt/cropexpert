@@ -10,6 +10,17 @@ const ID_MOA={
 const moaLabel=x=>ID_MOA[x]||x;
 
 
+async function jsonOr(path,fallback){
+  try{
+    const r=await fetch(path,{cache:'no-cache'});
+    if(!r.ok) throw new Error(`${r.status} ${path}`);
+    return await r.json();
+  }catch(err){
+    console.warn('[Crop Expert] Data tidak tersedia:',path,err);
+    return fallback;
+  }
+}
+
 async function load(){
   if(!window.CropExpertDataService) throw new Error('CropExpertDataService belum tersedia');
   Object.assign(state, await window.CropExpertDataService.loadAll());

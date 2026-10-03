@@ -1,3 +1,20 @@
+## v0.24.11.1
+
+## v0.24.11.2
+- Redesigned Home Weather menjadi ringkasan cuaca lokal yang lebih ringkas.
+- Home menampilkan temperatur, kondisi cuaca, kelembapan, angin, dan presipitasi.
+- Menambahkan tombol “Lihat detail cuaca” untuk membuka Weather & Spray Assist.
+- Spray Assist dan prakiraan hourly tetap tersedia di Weather Detail.
+- Menghapus elemen Spray Assist dan kontrol lokasi langsung dari Home.
+- Mempertahankan provider Open-Meteo dan engine weather yang sudah ada.
+- Menyempurnakan styling Home Weather untuk Light Mode dan Night Mode.
+- Membersihkan CSS legacy Home Weather yang sudah tidak digunakan.
+
+- Weather Beranda terhubung ke engine weather existing.
+- Tombol Izinkan menggunakan geolocation existing.
+- Night Mode diperbaiki untuk credit/footer dan card menu.
+- Provider weather dan API weather tidak diubah.
+
 ## v0.24.11
 - Weather dipindahkan ke bawah Search.
 - Lokasi perangkat diminta saat awal membuka aplikasi agar weather lokal langsung tersedia.
@@ -39,12 +56,8 @@
 - Blok “Catatan data” pada Database Pestisida dihapus dari tampilan.
 - PWA cache dinaikkan ke v0.24.10.
 
-## Refactor groundwork — Data Service
-- Extracted application dataset loading from `js/app.js` into `js/services/data-service.js`.
-- Kept Weather isolated and unchanged.
-- No user-facing feature or database content was intentionally changed.
 
-## Refactor Step 2–9 — Data architecture foundation
-- Added centralized State, MoA, OPT, Pesticide, Crop, Nutrition and Media services.
-- Added `data/schema-v1.json` and `DATABASE_ARCHITECTURE.md` as the canonical data-management foundation.
-- Weather module remains isolated and unchanged.
+## Refactor merge — latest Weather baseline
+- Merged Step 1–9 refactor services into the latest pestiapps baseline.
+- Preserved the latest `js/weather.js` unchanged.
+- Kept the latest application/data/media baseline as the source of truth.
