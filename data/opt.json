@@ -128,37 +128,40 @@
       "notes": "Hama penting pada bawang dan beberapa tanaman sayuran.",
       "images": [
         {
-          "image_type": "organism",
-          "local_path": "assets/opt/reference/spodoptera-exigua-larva.png",
+          "image_type": "symptom_reference",
+          "stage": "gejala",
+          "local_path": "assets/opt/photos/spodoptera-exigua-symptom.webp",
           "remote_url": "",
           "source_url": "",
-          "source_name": "Gambar referensi pengguna",
-          "license": "user-provided",
-          "author": "Pengguna",
-          "attribution": "Foto larva Spodoptera exigua yang diberikan pengguna untuk Crop Expert.",
-          "notes": "Digunakan sebagai referensi visual larva."
+          "attribution": "Foto pengguna — Crop Expert",
+          "notes": "Foto gejala serangan pada bawang; digunakan sebagai visual lapangan dan bukan penentu spesies secara tunggal."
         },
         {
           "image_type": "organism",
-          "local_path": "",
-          "remote_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Spodoptera_exigua.png",
-          "source_url": "https://commons.wikimedia.org/wiki/File:Spodoptera_exigua.png",
-          "source_name": "Wikimedia Commons",
-          "license": "CC BY 2.5",
-          "author": "Unknown author (file page)",
-          "attribution": "Spodoptera exigua larva feeding on Nicotiana attenuata — Wikimedia Commons, CC BY 2.5.",
-          "notes": "Real larva photo. Verify attribution text on the file page before redistribution."
+          "stage": "imago",
+          "local_path": "assets/opt/photos/spodoptera-exigua-adult.webp",
+          "remote_url": "",
+          "source_url": "",
+          "attribution": "Foto pengguna — Crop Expert",
+          "notes": "Foto imago yang diberikan pengguna."
+        },
+        {
+          "image_type": "organism",
+          "stage": "larva",
+          "local_path": "assets/opt/photos/spodoptera-exigua-larva.webp",
+          "remote_url": "",
+          "source_url": "",
+          "attribution": "Foto pengguna — Crop Expert",
+          "notes": "Foto larva yang diberikan pengguna."
         },
         {
           "image_type": "lifecycle",
-          "local_path": "assets/opt/reference/spodoptera-exigua-life-cycle.png",
+          "stage": "lifecycle",
+          "local_path": "assets/opt/photos/spodoptera-exigua-lifecycle.jpg",
           "remote_url": "",
           "source_url": "",
-          "source_name": "Gambar referensi pengguna",
-          "license": "user-provided",
-          "author": "Pengguna",
-          "attribution": "Gambar siklus hidup Spodoptera exigua yang diberikan pengguna untuk Crop Expert.",
-          "notes": "Menampilkan tahapan telur → larva → pupa → imago."
+          "attribution": "Ilustrasi pengguna — Crop Expert",
+          "notes": "Ilustrasi siklus hidup Spodoptera exigua pada bawang merah."
         }
       ],
       "eppo": {
@@ -175,13 +178,24 @@
           "Pupa",
           "Imago"
         ],
-        "source_note": "Urutan tahap diekstrak dari gambar siklus hidup yang diberikan pengguna; durasi tidak dicantumkan pada gambar tersebut."
-      }
+        "source_note": "Siklus disederhanakan untuk pembelajaran; durasi aktual dipengaruhi suhu, inang, varietas dan kondisi lapangan."
+      },
+      "description": "Ulat bawang adalah larva ngengat yang merusak jaringan daun dengan menggerek/mengikis permukaan dan membuat lubang. Pada bawang merah, kerusakan berat mengurangi luas daun aktif sehingga pembentukan dan pengisian umbi dapat terganggu.",
+      "diagnostic": "Cari telur/larva pada daun, lubang tidak beraturan, serta kotoran (frass). Larva sering lebih aktif sore–malam.",
+      "favorable_conditions": "Populasi dapat meningkat cepat pada kondisi hangat; monitoring perlu lebih intensif sejak tanaman muda hingga pembentukan umbi.",
+      "importance": "Penting",
+      "crop_importance": {
+        "bawang": "Penting",
+        "cabai": "Perlu dipantau"
+      },
+      "references": [
+        "UC IPM Onion & Garlic"
+      ]
     },
     {
       "id": "spodoptera-frugiperda",
       "name": "Spodoptera frugiperda",
-      "common": "Fall armyworm / ulat grayak jagung",
+      "common": "Fall Armyworm (FAW) / ulat grayak jagung",
       "category": "Lepidoptera",
       "family": "Noctuidae",
       "icon": "spodoptera.svg",
@@ -199,7 +213,40 @@
         "Pupa",
         "Imago"
       ],
-      "notes": "Sering menyerang titik tumbuh jagung."
+      "notes": "Sering menyerang titik tumbuh jagung.",
+      "images": [
+        {
+          "image_type": "organism",
+          "stage": "larva",
+          "local_path": "assets/opt/photos/spodoptera-frugiperda-larva.webp",
+          "remote_url": "",
+          "source_url": "",
+          "attribution": "Foto pengguna — Crop Expert",
+          "notes": "Foto larva Spodoptera frugiperda yang diberikan pengguna."
+        },
+        {
+          "image_type": "species_reference",
+          "stage": "larva",
+          "local_path": "assets/opt/photos/spodoptera-frugiperda-characteristics.webp",
+          "remote_url": "",
+          "source_url": "",
+          "attribution": "Ilustrasi pengguna — Crop Expert",
+          "notes": "Ilustrasi ciri morfologi larva Fall Armyworm (FAW); digunakan sebagai referensi visual, bukan satu-satunya dasar identifikasi."
+        },
+        {
+          "image_type": "lifecycle",
+          "stage": "lifecycle",
+          "local_path": "assets/opt/photos/spodoptera-frugiperda-lifecycle.webp",
+          "remote_url": "",
+          "source_url": "",
+          "attribution": "Ilustrasi pengguna — Crop Expert",
+          "notes": "Ilustrasi siklus hidup Fall Armyworm (FAW): telur, larva, pupa, dan imago."
+        }
+      ],
+      "aliases": [
+        "FAW",
+        "Fall Armyworm"
+      ]
     },
     {
       "id": "plutella-xylostella",
@@ -261,7 +308,43 @@
         "Pupa",
         "Imago"
       ],
-      "notes": "Larva dapat masuk ke buah dan menyebabkan busuk sekunder."
+      "notes": "Larva dapat masuk ke buah dan menyebabkan busuk sekunder.",
+      "images": [
+        {
+          "image_type": "organism",
+          "local_path": "",
+          "remote_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Helicoverpa_armigera.png",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Helicoverpa_armigera.png",
+          "attribution": "Wikimedia Commons — CC BY-SA 4.0",
+          "notes": "Foto referensi berlisensi/sumber publik; cek halaman sumber untuk ketentuan penggunaan."
+        },
+        {
+          "image_type": "ai_illustration",
+          "local_path": "assets/opt/photos/helicoverpa-armigera.webp",
+          "remote_url": "",
+          "source_url": "",
+          "attribution": "Crop Expert — ilustrasi AI",
+          "notes": "Ilustrasi AI untuk pembelajaran bentuk/gejala; BUKAN foto diagnostik."
+        }
+      ],
+      "description": "Ulat buah menyerang pucuk, bunga dan terutama buah. Larva dapat masuk ke buah sehingga kerusakan dari luar terlihat sebagai lubang masuk disertai kotoran.",
+      "diagnostic": "Periksa buah dan bunga untuk lubang, frass dan larva. Kerusakan buah perlu dibedakan dari lalat buah.",
+      "importance": "Penting",
+      "crop_importance": {
+        "cabai": "Penting"
+      },
+      "references": [
+        "UC IPM Peppers"
+      ],
+      "life_cycle_reference": {
+        "stages": [
+          "Telur",
+          "Larva",
+          "Pupa",
+          "Dewasa"
+        ],
+        "source_note": "Urutan siklus disederhanakan untuk pembelajaran; durasi aktual bergantung suhu, inang, varietas dan kondisi lapangan."
+      }
     },
     {
       "id": "thrips-parvispinus",
@@ -289,39 +372,33 @@
       "notes": "Serangan berat dapat mengganggu pucuk dan bunga.",
       "images": [
         {
-          "image_type": "lifecycle",
-          "local_path": "assets/opt/reference/thrips-life-cycle.png",
+          "image_type": "ai_illustration",
+          "local_path": "assets/opt/photos/thrips-parvispinus.webp",
           "remote_url": "",
           "source_url": "",
-          "source_name": "Gambar referensi pengguna",
-          "license": "user-provided",
-          "author": "Pengguna",
-          "attribution": "Gambar siklus hidup thrips yang diberikan pengguna untuk Crop Expert.",
-          "notes": "Menampilkan telur, instar 1, instar 2, prepupa, pupa dan imago."
-        },
-        {
-          "image_type": "species_reference",
-          "local_path": "assets/opt/reference/thrips-species-hosts.png",
-          "remote_url": "",
-          "source_url": "",
-          "source_name": "Gambar referensi pengguna",
-          "license": "user-provided",
-          "author": "Pengguna",
-          "attribution": "Tabel spesies thrips dan tanaman terdampak yang diberikan pengguna untuk Crop Expert.",
-          "notes": "Digunakan sebagai referensi daftar spesies dan kisaran kerusakan pada tabel."
+          "attribution": "Crop Expert — ilustrasi AI",
+          "notes": "Ilustrasi AI untuk pembelajaran bentuk/gejala; BUKAN foto diagnostik."
         }
       ],
       "life_cycle_reference": {
         "stages": [
-          "Telur (3–4 hari)",
-          "Instar 1 (1–2 hari)",
-          "Instar 2 (2–4 hari)",
-          "Prepupa (1–2 hari)",
-          "Pupa (1–3 hari)",
-          "Imago (30–45 hari)"
+          "Telur",
+          "Nimfa",
+          "Prepupa/Pupa",
+          "Dewasa"
         ],
-        "source_note": "Durasi tahap ditampilkan mengikuti teks pada gambar siklus hidup thrips yang diberikan pengguna; dapat berubah menurut spesies dan kondisi lingkungan."
-      }
+        "source_note": "Foto spesies tersedia pada EPPO Global Database; visual lokal ini adalah ilustrasi AI fallback. Jangan gunakan ilustrasi sebagai bukti diagnosis spesies."
+      },
+      "description": "Thrips parvispinus merupakan thrips penting pada cabai di Indonesia. Serangan terutama pada daun muda dan pucuk menyebabkan bronzing/keperakan, keriting, distorsi dan pertumbuhan terhambat; bunga juga dapat terdampak.",
+      "diagnostic": "Fokus pemeriksaan pada pucuk, daun muda dan bunga. Gejala perlu dibedakan dari tungau, virus dan fitotoksisitas.",
+      "favorable_conditions": "Populasi dapat berkembang cepat pada kondisi hangat; pemantauan perlu diperketat pada fase vegetatif akhir sampai pembungaan.",
+      "importance": "Penting",
+      "crop_importance": {
+        "cabai": "Penting"
+      },
+      "references": [
+        "FAO AGRIS / Central Java chili crop protection study"
+      ]
     },
     {
       "id": "bemisia-tabaci",
@@ -340,27 +417,62 @@
         "Daun menguning",
         "Embun madu",
         "Pertumbuhan cendawan jelaga",
-        "Dapat menularkan virus"
+        "Dapat menularkan virus",
+        "Pertumbuhan terganggu",
+        "Honeydew dan embun jelaga",
+        "Pertumbuhan tanaman menurun",
+        "Dapat menularkan berbagai virus"
       ],
       "life": [
         "Telur",
         "Nimfa",
-        "Imago"
+        "Imago",
+        "Pupa"
       ],
       "notes": "Vektor penting berbagai virus tanaman.",
       "images": [
         {
           "image_type": "organism",
           "local_path": "",
-          "remote_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Bemisia_tabaci_from_USDA_2.jpg",
-          "source_url": "https://commons.wikimedia.org/wiki/File:Bemisia_tabaci_from_USDA_2.jpg",
-          "source_name": "Wikimedia Commons / USDA ARS",
-          "license": "Public domain",
-          "author": "See source page",
-          "attribution": "Bemisia tabaci — Wikimedia Commons source.",
-          "notes": "Stephen Ausmus / USDA ARS."
+          "remote_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Bemisia_tabaci_from_USDA_1.jpg",
+          "source_url": "https://commons.wikimedia.org/wiki/Category:Bemisia_tabaci",
+          "attribution": "Wikimedia Commons — USDA image",
+          "notes": "Foto referensi berlisensi/sumber publik; cek halaman sumber untuk ketentuan penggunaan."
+        },
+        {
+          "image_type": "ai_illustration",
+          "local_path": "assets/opt/photos/bemisia-tabaci.webp",
+          "remote_url": "",
+          "source_url": "",
+          "attribution": "Crop Expert — ilustrasi AI",
+          "notes": "Ilustrasi AI untuk pembelajaran bentuk/gejala; BUKAN foto diagnostik."
         }
-      ]
+      ],
+      "eppo": {
+        "code": "BEMITA",
+        "url": "https://gd.eppo.int/taxon/BEMITA/photos",
+        "name": "Bemisia tabaci"
+      },
+      "description": "Kutu kebul mengisap cairan tanaman dan menghasilkan embun madu yang dapat ditumbuhi cendawan jelaga. Pada cabai, Bemisia tabaci juga merupakan vektor penting Begomovirus penyebab penyakit daun keriting kuning.",
+      "diagnostic": "Goyangkan daun untuk melihat imago terbang; periksa nimfa yang menetap di permukaan bawah daun dan adanya embun madu.",
+      "favorable_conditions": "Populasi meningkat bila tanaman inang dan gulma reservoir tersedia serta kondisi mendukung perkembangan kutu kebul.",
+      "importance": "Penting",
+      "crop_importance": {
+        "cabai": "Penting"
+      },
+      "references": [
+        "UC IPM Peppers",
+        "Jurnal Perlindungan Tanaman Indonesia (UGM), 2025"
+      ],
+      "life_cycle_reference": {
+        "stages": [
+          "Telur",
+          "Nimfa",
+          "Pupa-like stage",
+          "Dewasa"
+        ],
+        "source_note": "Urutan siklus disederhanakan untuk pembelajaran; durasi aktual bergantung suhu, inang, varietas dan kondisi lapangan."
+      }
     },
     {
       "id": "aphis-gossypii",
@@ -390,13 +502,35 @@
           "local_path": "",
           "remote_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Aphis_gossypii.jpg",
           "source_url": "https://commons.wikimedia.org/wiki/File:Aphis_gossypii.jpg",
-          "source_name": "Wikimedia Commons",
-          "license": "CC BY-SA 4.0",
-          "author": "See source page",
-          "attribution": "Aphis gossypii — Wikimedia Commons source.",
-          "notes": "Seo Hong-ryeol; Aphis gossypii."
+          "attribution": "Wikimedia Commons — source/licence on file page",
+          "notes": "Foto referensi berlisensi/sumber publik; cek halaman sumber untuk ketentuan penggunaan."
+        },
+        {
+          "image_type": "ai_illustration",
+          "local_path": "assets/opt/photos/aphis-gossypii.webp",
+          "remote_url": "",
+          "source_url": "",
+          "attribution": "Crop Expert — ilustrasi AI",
+          "notes": "Ilustrasi AI untuk pembelajaran bentuk/gejala; BUKAN foto diagnostik."
         }
-      ]
+      ],
+      "description": "Kutu daun mengisap cairan pada pucuk dan daun muda. Koloni menyebabkan daun keriting, pertumbuhan terhambat dan menghasilkan embun madu. Beberapa aphid juga dapat menjadi vektor virus tanaman.",
+      "diagnostic": "Cari koloni pada pucuk/daun muda, embun madu dan semut yang berasosiasi.",
+      "importance": "Penting",
+      "crop_importance": {
+        "cabai": "Penting"
+      },
+      "references": [
+        "UC IPM Peppers"
+      ],
+      "life_cycle_reference": {
+        "stages": [
+          "Telur/induk vivipar",
+          "Nimfa",
+          "Dewasa"
+        ],
+        "source_note": "Urutan siklus disederhanakan untuk pembelajaran; durasi aktual bergantung suhu, inang, varietas dan kondisi lapangan."
+      }
     },
     {
       "id": "nilaparvata-lugens",
@@ -418,7 +552,20 @@
         "Nimfa",
         "Imago"
       ],
-      "notes": "Hama utama padi dengan potensi ledakan populasi."
+      "notes": "Hama utama padi dengan potensi ledakan populasi.",
+      "images": [
+        {
+          "image_type": "organism",
+          "remote_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Nilaparvata_lugens_-_Brown_planthopper_-_UGA5190055.jpg",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Nilaparvata_lugens_-_Brown_planthopper_-_UGA5190055.jpg",
+          "source_name": "Wikimedia Commons / Bugwood.org",
+          "license": "CC BY 3.0 US",
+          "author": "Natasha Wright / FDACS, Bugwood.org",
+          "attribution": "Nilaparvata lugens — Wikimedia Commons, CC BY 3.0 US.",
+          "local_path": "",
+          "notes": "Foto referensi organisme; periksa atribusi pada halaman sumber sebelum redistribusi."
+        }
+      ]
     },
     {
       "id": "cnaphalocrocis-medinalis",
@@ -432,7 +579,8 @@
       ],
       "symptoms": [
         "Daun menggulung",
-        "Jaringan daun dimakan dari dalam gulungan"
+        "Jaringan daun dimakan dari dalam gulungan",
+        "Jaringan hijau di dalam gulungan terkikis"
       ],
       "life": [
         "Telur",
@@ -440,7 +588,20 @@
         "Pupa",
         "Imago"
       ],
-      "notes": "Larva hidup di dalam daun yang digulung."
+      "notes": "Larva hidup di dalam daun yang digulung.",
+      "images": [
+        {
+          "image_type": "organism",
+          "remote_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Cnaphalocrocis_medinalis.jpg",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Cnaphalocrocis_medinalis.jpg",
+          "source_name": "Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "author": "Gannu03",
+          "attribution": "Cnaphalocrocis medinalis — Wikimedia Commons, CC BY-SA 4.0.",
+          "local_path": "",
+          "notes": "Foto referensi organisme; periksa atribusi pada halaman sumber sebelum redistribusi."
+        }
+      ]
     },
     {
       "id": "liriomyza",
@@ -452,12 +613,14 @@
       "hosts": [
         "Tomat",
         "Kacang",
-        "Bawang"
+        "Bawang",
+        "Sayuran"
       ],
       "symptoms": [
         "Korokan berliku pada daun",
         "Fotosintesis terganggu",
-        "Daun mengering pada serangan berat"
+        "Daun mengering pada serangan berat",
+        "Pengorok daun yang tercantum dalam pedoman Allium."
       ],
       "life": [
         "Telur",
@@ -465,7 +628,49 @@
         "Pupa",
         "Imago"
       ],
-      "notes": "Larva berada di jaringan daun."
+      "notes": "Larva berada di jaringan daun.",
+      "images": [
+        {
+          "image_type": "organism",
+          "local_path": "",
+          "remote_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/2510028-PPT-Leafminer_fly_(Genus_Liriomyza).jpg",
+          "source_url": "https://commons.wikimedia.org/wiki/File:2510028-PPT-Leafminer_fly_(Genus_Liriomyza).jpg",
+          "attribution": "Wikimedia Commons — source/licence on file page",
+          "notes": "Foto referensi berlisensi/sumber publik; cek halaman sumber untuk ketentuan penggunaan."
+        },
+        {
+          "image_type": "ai_illustration",
+          "local_path": "assets/opt/photos/liriomyza.webp",
+          "remote_url": "",
+          "source_url": "",
+          "attribution": "Crop Expert — ilustrasi AI",
+          "notes": "Ilustrasi AI untuk pembelajaran bentuk/gejala; BUKAN foto diagnostik."
+        }
+      ],
+      "source_refs": [
+        "EPPO GPP crop guidelines 2000/1999"
+      ],
+      "description": "Lalat pengorok daun; larva membuat lorong di dalam jaringan daun sehingga muncul garis/korokan putih berkelok. Kerusakan berat menurunkan luas daun efektif.",
+      "diagnostic": "Bedakan lorong larva yang masih aktif dari bercak nekrotik. Periksa keberadaan larva/pupa di dalam atau dekat ujung lorong.",
+      "favorable_conditions": "Serangan cenderung lebih mudah berkembang saat terdapat tanaman inang dan gulma reservoir di sekitar pertanaman.",
+      "importance": "Penting",
+      "crop_importance": {
+        "bawang": "Penting",
+        "cabai": "Perlu dipantau"
+      },
+      "references": [
+        "UC IPM Onion & Garlic",
+        "UC IPM Peppers"
+      ],
+      "life_cycle_reference": {
+        "stages": [
+          "Telur",
+          "Larva di dalam daun",
+          "Pupa",
+          "Dewasa"
+        ],
+        "source_note": "Urutan siklus disederhanakan untuk pembelajaran; durasi aktual bergantung suhu, inang, varietas dan kondisi lapangan."
+      }
     },
     {
       "id": "tetranychus",
@@ -489,7 +694,8 @@
         "Nimfa",
         "Imago"
       ],
-      "notes": "Populasi berkembang cepat pada kondisi panas dan kering."
+      "notes": "Populasi berkembang cepat pada kondisi panas dan kering.",
+      "images": []
     },
     {
       "id": "nematoda-puru",
@@ -513,7 +719,8 @@
         "Juvenil",
         "Dewasa"
       ],
-      "notes": "Kerusakan akar menghambat penyerapan air dan nutrisi."
+      "notes": "Kerusakan akar menghambat penyerapan air dan nutrisi.",
+      "images": []
     },
     {
       "id": "leptocorisa-oratorius",
@@ -534,7 +741,8 @@
         "Nimfa",
         "Imago"
       ],
-      "notes": "Menyerang bulir padi terutama pada fase pengisian."
+      "notes": "Menyerang bulir padi terutama pada fase pengisian.",
+      "images": []
     },
     {
       "id": "scirpophaga-incertulas",
@@ -557,7 +765,100 @@
         "Pupa",
         "Imago"
       ],
-      "notes": "Larva merusak jaringan batang dari dalam."
+      "notes": "Larva merusak jaringan batang dari dalam.",
+      "images": [
+        {
+          "image_type": "organism",
+          "remote_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Scirpophaga_incertulas.jpg",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Scirpophaga_incertulas.jpg",
+          "source_name": "Wikimedia Commons",
+          "license": "CC BY 2.0",
+          "author": "Donald Hobern",
+          "attribution": "Scirpophaga incertulas — Wikimedia Commons, CC BY 2.0.",
+          "local_path": "",
+          "notes": "Foto referensi organisme; periksa atribusi pada halaman sumber sebelum redistribusi."
+        }
+      ]
+    },
+    {
+      "id": "scirpophaga-innotata",
+      "name": "Scirpophaga innotata",
+      "common": "Penggerek batang padi putih / Rice white stem borer",
+      "category": "Lepidoptera",
+      "family": "Crambidae",
+      "icon": "lepidoptera.svg",
+      "hosts": [
+        "Padi"
+      ],
+      "symptoms": [
+        "Sundep (deadheart) pada fase vegetatif",
+        "Beluk / whitehead pada fase generatif",
+        "Batang terserang mudah dicabut",
+        "Panikel dapat gagal muncul atau menghasilkan gabah putih/hampa"
+      ],
+      "life": [
+        "Telur",
+        "Larva",
+        "Pupa",
+        "Imago"
+      ],
+      "notes": "Larva menggerek di antara pelepah dan batang menuju titik tumbuh. Sumber PPPW mencatat larva dapat mengalami diapause; identifikasi perlu hati-hati karena gejalanya mirip dengan penggerek batang padi lain, termasuk S. incertulas.",
+      "diagnostic": "Dibedakan dari S. incertulas antara lain dengan ciri sayap depan; PPPW mencatat S. innotata tidak memiliki bintik pada sayap depan. Identifikasi spesies tetap sebaiknya dikonfirmasi oleh ahli taksonomi karena beberapa penggerek batang padi memiliki gejala yang sangat mirip.",
+      "life_cycle_reference": {
+        "stages": [
+          "Telur",
+          "Larva",
+          "Pupa",
+          "Imago"
+        ],
+        "duration_notes": "Telur sekitar 1 minggu hingga menetas; perkembangan larva sekitar 20–30 hari pada kondisi yang mendukung; pupa sekitar 6–9 hari. Larva dapat mengalami diapause selama kondisi tidak sesuai.",
+        "source_note": "Pacific Pests, Pathogens, Weeds & Pesticides (PPPW v13), Fact Sheet 411."
+      },
+      "images": [
+        {
+          "image_type": "symptom_reference",
+          "stage": "gejala",
+          "local_path": "assets/opt/photos/scirpophaga-innotata-whitehead.webp",
+          "remote_url": "",
+          "source_url": "",
+          "source_name": "Foto pengguna (user-provided)",
+          "license": "User-provided",
+          "author": "",
+          "attribution": "Foto pengguna: gejala whitehead / beluk pada padi.",
+          "notes": "Foto pengguna untuk referensi gejala whitehead / beluk. Gejala whitehead dapat terjadi akibat penggerek batang dan tidak sendirinya memastikan spesies."
+        },
+        {
+          "image_type": "organism",
+          "stage": "larva",
+          "local_path": "assets/opt/photos/scirpophaga-innotata-larva.webp",
+          "remote_url": "",
+          "source_url": "",
+          "source_name": "Foto pengguna (user-provided)",
+          "license": "User-provided",
+          "author": "",
+          "attribution": "Foto pengguna: larva penggerek batang padi putih.",
+          "notes": "Foto larva user-provided; dipakai sebagai thumbnail utama entity ini."
+        },
+        {
+          "image_type": "organism",
+          "stage": "imago",
+          "local_path": "",
+          "remote_url": "https://upload.wikimedia.org/wikipedia/commons/2/24/Scirpophaga_innotata_%28ento-csiro-au%29.jpg",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Scirpophaga_innotata_(ento-csiro-au).jpg",
+          "source_name": "Wikimedia Commons / CSIRO",
+          "license": "Public domain (as stated on Wikimedia Commons file page)",
+          "author": "",
+          "attribution": "Scirpophaga innotata (ento-csiro-au).jpg — Wikimedia Commons; public domain status stated on file page.",
+          "notes": "Ilustrasi imago. Gunakan sebagai referensi visual; local_path sengaja kosong karena file tidak dimirror ke repository."
+        }
+      ],
+      "sources": [
+        {
+          "title": "PPPW v13 Fact Sheet 411 — Rice white stem borer",
+          "url": "https://apps.lucidcentral.org/pppw_v13/text/web_full/entities/rice_white_stem_borer_411.htm",
+          "source": "Pacific Pests, Pathogens, Weeds & Pesticides"
+        }
+      ]
     },
     {
       "id": "chilo-suppressalis",
@@ -580,29 +881,8 @@
         "Pupa",
         "Imago"
       ],
-      "notes": "Larva hidup dan makan di dalam batang."
-    },
-    {
-      "id": "cnaphalocrocis-medinalis-2",
-      "name": "Cnaphalocrocis medinalis",
-      "common": "Hama putih / penggulung daun padi",
-      "category": "Lepidoptera",
-      "family": "Crambidae",
-      "icon": "lepidoptera.svg",
-      "hosts": [
-        "Padi"
-      ],
-      "symptoms": [
-        "Daun menggulung",
-        "Jaringan hijau di dalam gulungan terkikis"
-      ],
-      "life": [
-        "Telur",
-        "Larva",
-        "Pupa",
-        "Imago"
-      ],
-      "notes": "Data alias untuk pencarian lokal."
+      "notes": "Larva hidup dan makan di dalam batang.",
+      "images": []
     },
     {
       "id": "bemisia-vaporariorum",
@@ -626,7 +906,8 @@
         "Nimfa",
         "Imago"
       ],
-      "notes": "Kutu kebul dapat menjadi vektor dan menurunkan vigor tanaman."
+      "notes": "Kutu kebul dapat menjadi vektor dan menurunkan vigor tanaman.",
+      "images": []
     },
     {
       "id": "helopeltis",
@@ -650,7 +931,8 @@
         "Nimfa",
         "Imago"
       ],
-      "notes": "Penting pada beberapa komoditas perkebunan."
+      "notes": "Penting pada beberapa komoditas perkebunan.",
+      "images": []
     },
     {
       "id": "recilia-dorsalis",
@@ -672,7 +954,8 @@
         "Nimfa",
         "Imago"
       ],
-      "notes": "Serangga pengisap pada tanaman padi."
+      "notes": "Serangga pengisap pada tanaman padi.",
+      "images": []
     },
     {
       "id": "sogatella-furcifera",
@@ -694,7 +977,8 @@
         "Nimfa",
         "Imago"
       ],
-      "notes": "Salah satu wereng penting pada padi."
+      "notes": "Salah satu wereng penting pada padi.",
+      "images": []
     },
     {
       "id": "nephotettix",
@@ -716,7 +1000,8 @@
         "Nimfa",
         "Imago"
       ],
-      "notes": "Kelompok vektor penting penyakit tungro."
+      "notes": "Kelompok vektor penting penyakit tungro.",
+      "images": []
     },
     {
       "id": "spodoptera-litura",
@@ -745,17 +1030,42 @@
       "notes": "Polifag dan menyerang banyak tanaman budidaya.",
       "images": [
         {
+          "image_type": "symptom_reference",
+          "stage": "gejala",
+          "local_path": "assets/opt/photos/spodoptera-exigua-symptom.webp",
+          "remote_url": "",
+          "source_url": "",
+          "attribution": "Foto pengguna — Crop Expert",
+          "notes": "Foto gejala serangan pada bawang yang juga dapat digunakan sebagai contoh gejala lapangan S. litura; gejala bersifat tumpang tindih dan tidak menentukan spesies secara tunggal."
+        },
+        {
           "image_type": "organism",
-          "local_path": "",
-          "remote_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Spodoptera_litura_larvae.jpg",
-          "source_url": "https://commons.wikimedia.org/wiki/File:Spodoptera_litura_larvae.jpg",
-          "source_name": "Wikimedia Commons",
-          "license": "verify license on file page",
-          "author": "See source page",
-          "attribution": "Spodoptera litura — Wikimedia Commons source.",
-          "notes": "Larval photo; check current file license."
+          "stage": "imago",
+          "local_path": "assets/opt/photos/spodoptera-litura-adult.webp",
+          "remote_url": "",
+          "source_url": "",
+          "attribution": "Foto pengguna — Crop Expert",
+          "notes": "Foto imago S. litura yang diberikan pengguna."
+        },
+        {
+          "image_type": "organism",
+          "stage": "larva",
+          "local_path": "assets/opt/photos/spodoptera-litura-larva.webp",
+          "remote_url": "",
+          "source_url": "",
+          "attribution": "Foto pengguna — Crop Expert",
+          "notes": "Foto larva S. litura yang diberikan pengguna."
         }
-      ]
+      ],
+      "life_cycle_reference": {
+        "stages": [
+          "Telur",
+          "Larva",
+          "Pupa",
+          "Imago"
+        ],
+        "source_note": "Siklus disederhanakan untuk pembelajaran; durasi aktual dipengaruhi suhu, inang, varietas dan kondisi lapangan."
+      }
     },
     {
       "id": "agrotis-ipsilon",
@@ -778,33 +1088,44 @@
         "Pupa",
         "Imago"
       ],
-      "notes": "Larva bersembunyi di tanah pada siang hari."
-    },
-    {
-      "id": "bemisia",
-      "name": "Bemisia tabaci",
-      "common": "Kutu kebul",
-      "category": "Hemiptera",
-      "family": "Aleyrodidae",
-      "icon": "hemiptera.svg",
-      "hosts": [
-        "Cabai",
-        "Tomat",
-        "Kedelai",
-        "Melon"
+      "notes": "Larva bersembunyi di tanah pada siang hari.",
+      "description": "Ulat tanah menyerang pangkal bibit, terutama pada tanaman muda. Larva dapat memotong batang dekat permukaan tanah sehingga tanaman rebah atau mati.",
+      "diagnostic": "Periksa tanaman putus pada malam hari dan cari larva bersembunyi di tanah sekitar pangkal tanaman.",
+      "importance": "Perlu dipantau",
+      "crop_importance": {
+        "bawang": "Perlu dipantau",
+        "cabai": "Perlu dipantau"
+      },
+      "references": [
+        "UC IPM Peppers"
       ],
-      "symptoms": [
-        "Daun menguning",
-        "Embun madu",
-        "Pertumbuhan terganggu",
-        "Dapat menularkan virus"
+      "images": [
+        {
+          "image_type": "organism",
+          "local_path": "",
+          "remote_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Agrotis_ipsilon.jpg",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Agrotis_ipsilon.jpg",
+          "attribution": "Wikimedia Commons — CC BY 2.0",
+          "notes": "Foto referensi berlisensi/sumber publik; cek halaman sumber untuk ketentuan penggunaan."
+        },
+        {
+          "image_type": "ai_illustration",
+          "local_path": "assets/opt/photos/agrotis-ipsilon.webp",
+          "remote_url": "",
+          "source_url": "",
+          "attribution": "Crop Expert — ilustrasi AI",
+          "notes": "Ilustrasi AI untuk pembelajaran bentuk/gejala; BUKAN foto diagnostik."
+        }
       ],
-      "life": [
-        "Telur",
-        "Nimfa",
-        "Imago"
-      ],
-      "notes": "Alias pencarian umum untuk Bemisia tabaci."
+      "life_cycle_reference": {
+        "stages": [
+          "Telur",
+          "Larva",
+          "Pupa",
+          "Dewasa"
+        ],
+        "source_note": "Urutan siklus disederhanakan untuk pembelajaran; durasi aktual bergantung suhu, inang, varietas dan kondisi lapangan."
+      }
     },
     {
       "id": "pseudococcus",
@@ -828,7 +1149,8 @@
         "Telur/Nimfa",
         "Imago"
       ],
-      "notes": "Serangga pengisap dengan lapisan lilin."
+      "notes": "Serangga pengisap dengan lapisan lilin.",
+      "images": []
     },
     {
       "id": "aphid",
@@ -852,7 +1174,8 @@
         "Nimfa",
         "Imago"
       ],
-      "notes": "Kelompok umum kutu daun."
+      "notes": "Kelompok umum kutu daun.",
+      "images": []
     },
     {
       "id": "caloptilia",
@@ -876,7 +1199,8 @@
         "Pupa",
         "Imago"
       ],
-      "notes": "Beberapa spesies menjadi hama pada pucuk dan daun muda."
+      "notes": "Beberapa spesies menjadi hama pada pucuk dan daun muda.",
+      "images": []
     },
     {
       "id": "brontispa-longissima",
@@ -898,7 +1222,8 @@
         "Pupa",
         "Imago"
       ],
-      "notes": "Menyerang daun muda kelapa."
+      "notes": "Menyerang daun muda kelapa.",
+      "images": []
     },
     {
       "id": "oryctes-rhinoceros",
@@ -922,7 +1247,8 @@
         "Pupa",
         "Imago"
       ],
-      "notes": "Hama penting palma."
+      "notes": "Hama penting palma.",
+      "images": []
     },
     {
       "id": "hypothenemus-hampei",
@@ -945,7 +1271,8 @@
         "Pupa",
         "Imago"
       ],
-      "notes": "Betina membuat lubang masuk ke buah kopi."
+      "notes": "Betina membuat lubang masuk ke buah kopi.",
+      "images": []
     },
     {
       "id": "bemisia-cassava",
@@ -967,7 +1294,8 @@
         "Nimfa",
         "Imago"
       ],
-      "notes": "Kompleks spesies yang berasosiasi dengan singkong."
+      "notes": "Kompleks spesies yang berasosiasi dengan singkong.",
+      "images": []
     },
     {
       "id": "thrips-tabaci",
@@ -1000,38 +1328,48 @@
       },
       "images": [
         {
-          "image_type": "lifecycle",
-          "local_path": "assets/opt/reference/thrips-life-cycle.png",
-          "remote_url": "",
-          "source_url": "",
-          "source_name": "Gambar referensi pengguna",
-          "license": "user-provided",
-          "author": "Pengguna",
-          "attribution": "Gambar siklus hidup thrips yang diberikan pengguna untuk Crop Expert.",
-          "notes": "Menampilkan telur, instar 1, instar 2, prepupa, pupa dan imago."
+          "image_type": "organism",
+          "local_path": "",
+          "remote_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Thrips_tabaci.jpg",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Thrips_tabaci.jpg",
+          "attribution": "Wikimedia Commons — CC BY 3.0",
+          "notes": "Foto referensi berlisensi/sumber publik; cek halaman sumber untuk ketentuan penggunaan."
         },
         {
-          "image_type": "species_reference",
-          "local_path": "assets/opt/reference/thrips-species-hosts.png",
+          "image_type": "ai_illustration",
+          "local_path": "assets/opt/photos/thrips-tabaci.webp",
           "remote_url": "",
           "source_url": "",
-          "source_name": "Gambar referensi pengguna",
-          "license": "user-provided",
-          "author": "Pengguna",
-          "attribution": "Tabel spesies thrips dan tanaman terdampak yang diberikan pengguna untuk Crop Expert.",
-          "notes": "Digunakan sebagai referensi daftar spesies dan kisaran kerusakan pada tabel."
+          "attribution": "Crop Expert — ilustrasi AI",
+          "notes": "Ilustrasi AI untuk pembelajaran bentuk/gejala; BUKAN foto diagnostik."
+        },
+        {
+          "image_type": "lifecycle",
+          "stage": "lifecycle",
+          "local_path": "assets/opt/photos/thrips-tabaci-lifecycle.jpg",
+          "remote_url": "",
+          "source_url": "",
+          "attribution": "Ilustrasi pengguna — Crop Expert",
+          "notes": "Ilustrasi siklus hidup Thrips tabaci pada bawang merah."
+        },
+        {
+          "image_type": "organism",
+          "stage": "imago",
+          "local_path": "assets/opt/photos/thrips-tabaci-adult.webp",
+          "remote_url": "",
+          "source_url": "",
+          "attribution": "Foto pengguna — Crop Expert",
+          "notes": "Foto imago Thrips tabaci yang diberikan pengguna."
         }
       ],
       "life_cycle_reference": {
         "stages": [
-          "Telur (3–4 hari)",
-          "Instar 1 (1–2 hari)",
-          "Instar 2 (2–4 hari)",
-          "Prepupa (1–2 hari)",
-          "Pupa (1–3 hari)",
-          "Imago (30–45 hari)"
+          "Telur",
+          "Nimfa I–II",
+          "Prepupa/Pupa",
+          "Dewasa"
         ],
-        "source_note": "Durasi tahap ditampilkan mengikuti teks pada gambar siklus hidup thrips yang diberikan pengguna; dapat berubah menurut spesies dan kondisi lingkungan."
+        "source_note": "Referensi visual: Wikimedia Commons; biologi: literatur thrips bawang."
       },
       "source_table": {
         "source": "Tabel spesies thrips yang diberikan pengguna",
@@ -1044,7 +1382,18 @@
         "moderate": [
           "Tomato"
         ]
-      }
+      },
+      "description": "Thrips bawang menyerang jaringan daun, terutama bagian terlindung di antara lipatan daun. Luka makan menimbulkan warna keperakan/bronzing, daun terdistorsi dan pada serangan berat luas fotosintesis turun.",
+      "diagnostic": "Periksa bagian dalam lipatan daun dan pangkal daun; gunakan kaca pembesar atau ketuk daun di atas kertas putih untuk menemukan nimfa dan imago.",
+      "favorable_conditions": "Kondisi panas dan relatif kering cenderung mendukung perkembangan dan kerusakan thrips.",
+      "importance": "Penting",
+      "crop_importance": {
+        "bawang": "Penting",
+        "cabai": "Perlu dipantau"
+      },
+      "references": [
+        "UC IPM Thrips / Onion & Garlic"
+      ]
     },
     {
       "id": "liriomyza-chinensis",
@@ -1073,7 +1422,8 @@
         "code": "LIRICH",
         "url": "https://gd.eppo.int/taxon/LIRICH/photos",
         "name": "Liriomyza chinensis"
-      }
+      },
+      "images": []
     },
     {
       "id": "delia-antiqua",
@@ -1102,7 +1452,8 @@
         "code": "HYLEAN",
         "url": "https://gd.eppo.int/taxon/HYLEAN/photos",
         "name": "Delia antiqua"
-      }
+      },
+      "images": []
     },
     {
       "id": "mythimna-separata",
@@ -1131,7 +1482,8 @@
         "code": "PSEDSE",
         "url": "https://gd.eppo.int/taxon/PSEDSE/photos",
         "name": "Mythimna separata"
-      }
+      },
+      "images": []
     },
     {
       "id": "orseolia-oryzae",
@@ -1159,7 +1511,8 @@
         "code": "PACHOR",
         "url": "https://gd.eppo.int/taxon/PACHOR/photos",
         "name": "Orseolia oryzae"
-      }
+      },
+      "images": []
     },
     {
       "id": "pomacea-canaliculata",
@@ -1186,7 +1539,8 @@
         "code": "POMACA",
         "url": "https://gd.eppo.int/taxon/POMACA/photos",
         "name": "Pomacea canaliculata"
-      }
+      },
+      "images": []
     },
     {
       "id": "nymphula-depunctalis",
@@ -1214,7 +1568,8 @@
         "code": "NYMPDE",
         "url": "https://gd.eppo.int/taxon/NYMPDE/photos",
         "name": "Nymphula depunctalis"
-      }
+      },
+      "images": []
     },
     {
       "id": "dicladispa-armigera",
@@ -1242,7 +1597,8 @@
         "code": "DICLAR",
         "url": "https://gd.eppo.int/taxon/DICLAR/photos",
         "name": "Dicladispa armigera"
-      }
+      },
+      "images": []
     },
     {
       "id": "polyphagotarsonemus-latus",
@@ -1272,6 +1628,41 @@
         "code": "POLYLA",
         "url": "https://gd.eppo.int/taxon/POLYLA/photos",
         "name": "Polyphagotarsonemus latus"
+      },
+      "description": "Tungau kuning lebar menyerang jaringan muda. Daun menjadi menyempit, berkerut atau terdistorsi dan pertumbuhan pucuk dapat terhambat.",
+      "diagnostic": "Periksa pucuk dan daun termuda dengan kaca pembesar; gejala dapat menyerupai kerusakan thrips atau virus.",
+      "importance": "Penting",
+      "crop_importance": {
+        "cabai": "Penting"
+      },
+      "references": [
+        "UC IPM Peppers"
+      ],
+      "images": [
+        {
+          "image_type": "organism",
+          "local_path": "",
+          "remote_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Polyphagotarsonemus_latus,_USDA_BARC.jpg",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Polyphagotarsonemus_latus,_USDA_BARC.jpg",
+          "attribution": "Wikimedia Commons — public domain",
+          "notes": "Foto referensi berlisensi/sumber publik; cek halaman sumber untuk ketentuan penggunaan."
+        },
+        {
+          "image_type": "ai_illustration",
+          "local_path": "assets/opt/photos/polyphagotarsonemus-latus.webp",
+          "remote_url": "",
+          "source_url": "",
+          "attribution": "Crop Expert — ilustrasi AI",
+          "notes": "Ilustrasi AI untuk pembelajaran bentuk/gejala; BUKAN foto diagnostik."
+        }
+      ],
+      "life_cycle_reference": {
+        "stages": [
+          "Telur",
+          "Larva/Nimfa",
+          "Dewasa"
+        ],
+        "source_note": "Urutan siklus disederhanakan untuk pembelajaran; durasi aktual bergantung suhu, inang, varietas dan kondisi lapangan."
       }
     },
     {
@@ -1300,6 +1691,42 @@
         "code": "DACUDO",
         "url": "https://gd.eppo.int/taxon/DACUDO/photos",
         "name": "Bactrocera dorsalis"
+      },
+      "description": "Lalat buah bertelur pada buah; larva berkembang di dalam buah dan menyebabkan jaringan busuk. Lubang oviposisi dan pembusukan dapat membuka jalan bagi mikroorganisme sekunder.",
+      "diagnostic": "Cari titik tusukan/oviposisi dan buah yang cepat melunak atau membusuk; konfirmasi dengan menemukan larva di dalam buah.",
+      "importance": "Penting",
+      "crop_importance": {
+        "cabai": "Penting"
+      },
+      "references": [
+        "UC IPM Peppers"
+      ],
+      "images": [
+        {
+          "image_type": "organism",
+          "local_path": "",
+          "remote_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Bactrocera_dorsalis.jpg",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Bactrocera_dorsalis.jpg",
+          "attribution": "Wikimedia Commons — public domain",
+          "notes": "Foto referensi berlisensi/sumber publik; cek halaman sumber untuk ketentuan penggunaan."
+        },
+        {
+          "image_type": "ai_illustration",
+          "local_path": "assets/opt/photos/bactrocera-dorsalis.webp",
+          "remote_url": "",
+          "source_url": "",
+          "attribution": "Crop Expert — ilustrasi AI",
+          "notes": "Ilustrasi AI untuk pembelajaran bentuk/gejala; BUKAN foto diagnostik."
+        }
+      ],
+      "life_cycle_reference": {
+        "stages": [
+          "Telur",
+          "Larva",
+          "Pupa",
+          "Dewasa"
+        ],
+        "source_note": "Urutan siklus disederhanakan untuk pembelajaran; durasi aktual bergantung suhu, inang, varietas dan kondisi lapangan."
       }
     },
     {
@@ -1327,36 +1754,8 @@
         "code": "APHICR",
         "url": "https://gd.eppo.int/taxon/APHICR/photos",
         "name": "Aphis craccivora"
-      }
-    },
-    {
-      "id": "bemisia-tabaci-chili",
-      "name": "Bemisia tabaci",
-      "common": "Kutu kebul",
-      "category": "Hemiptera",
-      "family": "Aleyrodidae",
-      "icon": "hemiptera.svg",
-      "hosts": [
-        "Cabai"
-      ],
-      "symptoms": [
-        "Daun menguning",
-        "Honeydew dan embun jelaga",
-        "Pertumbuhan tanaman menurun",
-        "Dapat menularkan berbagai virus"
-      ],
-      "life": [
-        "Telur",
-        "Nimfa",
-        "Pupa",
-        "Imago"
-      ],
-      "notes": "EPPO mencatat B. tabaci sebagai organisme yang berasosiasi dengan Capsicum annuum.",
-      "eppo": {
-        "code": "BEMITA",
-        "url": "https://gd.eppo.int/taxon/BEMITA/photos",
-        "name": "Bemisia tabaci"
-      }
+      },
+      "images": []
     },
     {
       "id": "ceutorhynchus-suturalis",
@@ -1431,26 +1830,6 @@
       ],
       "life": [],
       "notes": "Larva merupakan hama daun pada tanaman Allium.",
-      "images": [],
-      "source_refs": [
-        "EPPO GPP crop guidelines 2000/1999"
-      ]
-    },
-    {
-      "id": "liriomyza-allium",
-      "name": "Liriomyza spp.",
-      "common": "Lalat pengorok daun",
-      "category": "Diptera",
-      "family": "Agromyzidae",
-      "hosts": [
-        "Bawang",
-        "Sayuran"
-      ],
-      "symptoms": [
-        "Pengorok daun yang tercantum dalam pedoman Allium."
-      ],
-      "life": [],
-      "notes": "Pengorok daun yang tercantum dalam pedoman Allium.",
       "images": [],
       "source_refs": [
         "EPPO GPP crop guidelines 2000/1999"
@@ -2239,7 +2618,7 @@
       "id": "phytophthora",
       "name": "Phytophthora infestans",
       "common": "Busuk daun / late blight",
-      "category": "Fungi-like",
+      "category": "Jamur Basah",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Tomat",
@@ -2262,30 +2641,81 @@
           "attribution": "Phytophthora infestans — Wikimedia Commons source.",
           "notes": "Reference image of Phytophthora infestans."
         }
-      ]
+      ],
+      "classification": "Jamur Basah",
+      "classification_group": "Oomycetes",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "colletotrichum",
       "name": "Colletotrichum spp.",
       "common": "Antraknosa",
-      "category": "Fungi",
+      "category": "Jamur",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Cabai",
         "Mangga",
-        "Tomat"
+        "Tomat",
+        "Bawang"
       ],
       "symptoms": [
         "Bercak cekung",
         "Lesi membesar",
-        "Busuk buah"
-      ]
+        "Busuk buah",
+        "Lesi melingkar",
+        "Busuk buah atau umbi",
+        "Lesi cekung pada buah",
+        "Bercak membesar konsentris",
+        "Buah membusuk",
+        "Spora dapat muncul pada jaringan terserang"
+      ],
+      "notes": "Antraknosa cabai merupakan kompleks Colletotrichum; spesies penyebab perlu dikonfirmasi bila diperlukan.",
+      "images": [
+        {
+          "image_type": "ai_illustration",
+          "local_path": "assets/opt/photos/colletotrichum.webp",
+          "remote_url": "",
+          "source_url": "",
+          "attribution": "Crop Expert — ilustrasi AI",
+          "notes": "Ilustrasi AI untuk pembelajaran bentuk/gejala; BUKAN foto diagnostik."
+        }
+      ],
+      "description": "Colletotrichum spp. menyebabkan antraknosa pada berbagai tanaman. Pada cabai, penyakit terutama merusak buah dengan lesi cekung yang membesar dan dapat berkembang menjadi busuk; pada Allium, gejala dan spesies penyebab dapat berbeda sehingga identifikasi perlu mempertimbangkan inang.",
+      "diagnostic": "Pada cabai, cari lesi cekung pada buah dan perkembangan busuk. Nama spesies Colletotrichum tidak sebaiknya ditentukan hanya dari gejala visual.",
+      "favorable_conditions": "Periode lembap/basah mendukung perkembangan penyakit.",
+      "importance": "Penting",
+      "crop_importance": {
+        "cabai": "Penting",
+        "bawang": "Perlu dipantau"
+      },
+      "references": [
+        {
+          "name": "FAO AGRIS — Central Java chili crop protection study",
+          "url": "https://agris.fao.org/search/en/providers/122535/records/65de4df9b766d82b18fd05c7"
+        },
+        {
+          "name": "UC IPM Peppers",
+          "url": "https://ipm.ucanr.edu/agriculture/peppers/"
+        }
+      ],
+      "life_cycle_reference": {
+        "stages": [
+          "Inokulum/konidia",
+          "Infeksi jaringan",
+          "Lesi & acervuli",
+          "Konidia menyebar"
+        ],
+        "source_note": "Gejala antraknosa cabai merujuk studi diagnostik pepper anthracnose; visual lokal adalah ilustrasi AI fallback."
+      },
+      "classification": "Jamur",
+      "classification_group": "Fungi",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "xanthomonas",
       "name": "Xanthomonas spp.",
       "common": "Hawar daun bakteri",
-      "category": "Bacteria",
+      "category": "Bakteri",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Padi",
@@ -2295,8 +2725,57 @@
       "symptoms": [
         "Bercak/hawar daun",
         "Daun menguning",
-        "Luka berair pada kondisi lembap"
-      ]
+        "Luka berair pada kondisi lembap",
+        "Bercak kecil pada daun",
+        "Lesi pada buah",
+        "Daun dapat gugur",
+        "Bercak dapat tampak berair pada awal infeksi"
+      ],
+      "notes": "Kelompok Xanthomonas yang menyerang Capsicum perlu dibedakan sampai tingkat spesies/pathovar bila diperlukan.",
+      "eppo": {
+        "code": "XANTHO",
+        "url": "https://gd.eppo.int/taxon/XANTHO/photos",
+        "name": "Xanthomonas"
+      },
+      "description": "Kelompok Xanthomonas dapat menyebabkan bercak/lesi bakteri pada daun dan organ tanaman. Pada cabai, diagnosis perlu dibedakan dari bercak jamur dan kerusakan lain.",
+      "diagnostic": "Perhatikan lesi kecil yang berkembang, terutama pada kondisi lembap; identifikasi spesies/ras memerlukan pemeriksaan lebih lanjut.",
+      "importance": "Perlu dipantau",
+      "crop_importance": {
+        "cabai": "Perlu dipantau"
+      },
+      "references": [
+        "UC IPM Peppers"
+      ],
+      "images": [
+        {
+          "image_type": "symptom_reference",
+          "local_path": "",
+          "remote_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Bacterial_leaf_spot_of_pepper_(Capsicum_sp.)_(43614805831).jpg",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Bacterial_leaf_spot_of_pepper_(Capsicum_sp.)_(43614805831).jpg",
+          "attribution": "Wikimedia Commons — CC0",
+          "notes": "Foto referensi berlisensi/sumber publik; cek halaman sumber untuk ketentuan penggunaan."
+        },
+        {
+          "image_type": "ai_illustration",
+          "local_path": "assets/opt/photos/xanthomonas.webp",
+          "remote_url": "",
+          "source_url": "",
+          "attribution": "Crop Expert — ilustrasi AI",
+          "notes": "Ilustrasi AI untuk pembelajaran bentuk/gejala; BUKAN foto diagnostik."
+        }
+      ],
+      "life_cycle_reference": {
+        "stages": [
+          "Bakteri pada benih/sisa tanaman",
+          "Masuk melalui stomata/luka",
+          "Kolonisasi jaringan",
+          "Eksudat & penyebaran percikan"
+        ],
+        "source_note": "Urutan siklus disederhanakan untuk pembelajaran; durasi aktual bergantung suhu, inang, varietas dan kondisi lapangan."
+      },
+      "classification": "Bakteri",
+      "classification_group": "Bacteria",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "mosaic",
@@ -2313,13 +2792,17 @@
         "Pola mosaik",
         "Daun keriting",
         "Pertumbuhan terhambat"
-      ]
+      ],
+      "images": [],
+      "classification": "Virus",
+      "classification_group": "Virus",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "fusarium",
       "name": "Fusarium oxysporum",
       "common": "Layu fusarium",
-      "category": "Fungi",
+      "category": "Jamur",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Cabai",
@@ -2330,13 +2813,17 @@
         "Layu bertahap",
         "Perubahan warna pembuluh",
         "Tanaman kerdil"
-      ]
+      ],
+      "images": [],
+      "classification": "Jamur",
+      "classification_group": "Fungi",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "downy",
       "name": "Peronospora spp.",
       "common": "Embun bulu",
-      "category": "Oomycete",
+      "category": "Jamur Basah",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Bawang",
@@ -2359,23 +2846,31 @@
           "attribution": "Peronospora spp. — Wikimedia Commons source.",
           "notes": "Howard F. Schwartz / Bugwood; downy mildew on onion."
         }
-      ]
+      ],
+      "classification": "Jamur Basah",
+      "classification_group": "Oomycetes",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "rhizoctonia",
       "name": "Rhizoctonia solani",
       "common": "Rebah semai / busuk pangkal",
-      "category": "Fungi",
+      "category": "Jamur",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Padi",
         "Kedelai",
-        "Sayuran"
+        "Sayuran",
+        "Kubis",
+        "Brassica"
       ],
       "symptoms": [
         "Pangkal batang busuk",
         "Tanaman roboh",
-        "Akar kecokelatan"
+        "Akar kecokelatan",
+        "Bercak pada pelepah",
+        "Lesi meluas ke daun",
+        "Rebah pada kondisi berat"
       ],
       "images": [
         {
@@ -2389,13 +2884,22 @@
           "attribution": "Rhizoctonia solani — Wikimedia Commons source.",
           "notes": "David B. Langston / University of Georgia / Bugwood."
         }
-      ]
+      ],
+      "notes": "Data sumber EPPO Guidelines on Good Plant Protection Practice; pedoman bersifat regional dan historis, bukan bukti registrasi Indonesia.",
+      "source_refs": [
+        "EPPO PP 2/4 Allium Crops",
+        "EPPO PP 2/17 Maize",
+        "EPPO PP 2/7 Vegetable Brassicas"
+      ],
+      "classification": "Jamur",
+      "classification_group": "Fungi",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "rice-blast",
       "name": "Magnaporthe oryzae",
       "common": "Blas padi",
-      "category": "Fungi",
+      "category": "Jamur",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Padi"
@@ -2404,13 +2908,17 @@
         "Bercak berbentuk belah ketupat",
         "Leher malai dapat membusuk",
         "Malai mengering"
-      ]
+      ],
+      "images": [],
+      "classification": "Jamur",
+      "classification_group": "Fungi",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "rice-bacterial-blight",
       "name": "Xanthomonas oryzae pv. oryzae",
       "common": "Hawar daun bakteri",
-      "category": "Bacteria",
+      "category": "Bakteri",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Padi"
@@ -2419,7 +2927,11 @@
         "Daun menguning dari tepi",
         "Hawar memanjang",
         "Gejala kresek pada tanaman muda"
-      ]
+      ],
+      "images": [],
+      "classification": "Bakteri",
+      "classification_group": "Bacteria",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "rice-tungro",
@@ -2434,28 +2946,17 @@
         "Daun kuning-oranye",
         "Tanaman kerdil",
         "Anakan berkurang"
-      ]
-    },
-    {
-      "id": "rice-sheath-blight",
-      "name": "Rhizoctonia solani",
-      "common": "Hawar pelepah",
-      "category": "Fungi",
-      "icon": "disease-leaf.svg",
-      "hosts": [
-        "Padi"
       ],
-      "symptoms": [
-        "Bercak pada pelepah",
-        "Lesi meluas ke daun",
-        "Rebah pada kondisi berat"
-      ]
+      "images": [],
+      "classification": "Virus",
+      "classification_group": "Virus",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "tomato-bacterial-wilt",
       "name": "Ralstonia solanacearum species complex",
       "common": "Layu bakteri",
-      "category": "Bacteria",
+      "category": "Bakteri",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Tomat",
@@ -2468,23 +2969,50 @@
       ],
       "images": [
         {
-          "image_type": "symptom",
+          "image_type": "symptom_reference",
           "local_path": "",
-          "remote_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ralstonia_solanacearum_symptoms.jpg",
-          "source_url": "https://commons.wikimedia.org/wiki/File:Ralstonia_solanacearum_symptoms.jpg",
-          "source_name": "Wikimedia Commons / USDA",
-          "license": "Public domain",
-          "author": "See source page",
-          "attribution": "Ralstonia solanacearum species complex — Wikimedia Commons source.",
-          "notes": "Tomato bacterial wilt symptoms."
+          "remote_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Bacterial_wilt_of_pepper_(9159744719).jpg",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Bacterial_wilt_of_pepper_(9159744719).jpg",
+          "attribution": "Wikimedia Commons — CC0",
+          "notes": "Foto referensi berlisensi/sumber publik; cek halaman sumber untuk ketentuan penggunaan."
+        },
+        {
+          "image_type": "ai_illustration",
+          "local_path": "assets/opt/photos/tomato-bacterial-wilt.webp",
+          "remote_url": "",
+          "source_url": "",
+          "attribution": "Crop Expert — ilustrasi AI",
+          "notes": "Ilustrasi AI untuk pembelajaran bentuk/gejala; BUKAN foto diagnostik."
         }
-      ]
+      ],
+      "description": "Layu bakteri oleh Ralstonia solanacearum species complex menyebabkan layu yang dapat berkembang cepat tanpa pola nekrosis daun yang khas pada awal serangan. Pangkal batang dan sistem pembuluh dapat terinfeksi.",
+      "diagnostic": "Lakukan pemeriksaan akar/pangkal batang dan gunakan uji diagnostik bila perlu; gejala layu saja tidak cukup untuk memastikan Ralstonia.",
+      "favorable_conditions": "Tanah basah dan suhu hangat mendukung perkembangan serta penyebaran patogen tular tanah.",
+      "importance": "Penting",
+      "crop_importance": {
+        "cabai": "Penting"
+      },
+      "references": [
+        "UC IPM Peppers"
+      ],
+      "life_cycle_reference": {
+        "stages": [
+          "Bakteri bertahan di tanah",
+          "Masuk melalui akar/luka",
+          "Kolonisasi xilem",
+          "Penyebaran melalui tanah/air"
+        ],
+        "source_note": "Urutan siklus disederhanakan untuk pembelajaran; durasi aktual bergantung suhu, inang, varietas dan kondisi lapangan."
+      },
+      "classification": "Bakteri",
+      "classification_group": "Bacteria",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "cercospora",
       "name": "Cercospora spp.",
       "common": "Bercak daun cercospora",
-      "category": "Fungi",
+      "category": "Jamur",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Kedelai",
@@ -2495,13 +3023,17 @@
         "Bercak cokelat/abu-abu",
         "Daun menguning",
         "Defoliasi bila berat"
-      ]
+      ],
+      "images": [],
+      "classification": "Jamur",
+      "classification_group": "Fungi",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "alternaria",
       "name": "Alternaria spp.",
       "common": "Bercak alternaria",
-      "category": "Fungi",
+      "category": "Jamur",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Tomat",
@@ -2525,13 +3057,16 @@
           "attribution": "Alternaria spp. — Wikimedia Commons source.",
           "notes": "New Zealand Fungal and Plant Disease Collection (PDD) / Landcare Research."
         }
-      ]
+      ],
+      "classification": "Jamur",
+      "classification_group": "Fungi",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "powdery-mildew",
       "name": "Podosphaera / Erysiphe spp.",
       "common": "Embun tepung",
-      "category": "Fungi",
+      "category": "Jamur",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Mentimun",
@@ -2542,13 +3077,17 @@
         "Lapisan putih seperti tepung",
         "Daun menguning",
         "Fotosintesis menurun"
-      ]
+      ],
+      "images": [],
+      "classification": "Jamur",
+      "classification_group": "Fungi",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "downy-cucurbits",
       "name": "Pseudoperonospora cubensis",
       "common": "Embun bulu mentimun",
-      "category": "Oomycete",
+      "category": "Jamur Basah",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Mentimun",
@@ -2571,29 +3110,16 @@
           "attribution": "Pseudoperonospora cubensis — Wikimedia Commons source.",
           "notes": "Nathan T. Jones / iNaturalist; cucurbit downy mildew."
         }
-      ]
-    },
-    {
-      "id": "anthracnose-onion",
-      "name": "Colletotrichum spp.",
-      "common": "Antraknosa / patek",
-      "category": "Fungi",
-      "icon": "disease-leaf.svg",
-      "hosts": [
-        "Cabai",
-        "Bawang"
       ],
-      "symptoms": [
-        "Bercak cekung",
-        "Lesi melingkar",
-        "Busuk buah atau umbi"
-      ]
+      "classification": "Jamur Basah",
+      "classification_group": "Oomycetes",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "fusarium-wilt",
       "name": "Fusarium oxysporum complex",
       "common": "Layu fusarium",
-      "category": "Fungi",
+      "category": "Jamur",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Cabai",
@@ -2614,28 +3140,43 @@
       "aliases": [
         "Fusarium wilt",
         "Layu Fusarium"
-      ]
+      ],
+      "images": [],
+      "classification": "Jamur",
+      "classification_group": "Fungi",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "black-rot",
       "name": "Xanthomonas campestris pv. campestris",
       "common": "Busuk hitam kubis",
-      "category": "Bacteria",
+      "category": "Bakteri",
       "icon": "disease-leaf.svg",
       "hosts": [
-        "Kubis"
+        "Kubis",
+        "Brassica"
       ],
       "symptoms": [
         "V berbatas tegas pada daun",
         "Jaringan menghitam",
         "Daun mengering"
-      ]
+      ],
+      "notes": "Data sumber EPPO Guidelines on Good Plant Protection Practice; pedoman bersifat regional dan historis, bukan bukti registrasi Indonesia.",
+      "images": [],
+      "source_refs": [
+        "EPPO PP 2/4 Allium Crops",
+        "EPPO PP 2/17 Maize",
+        "EPPO PP 2/7 Vegetable Brassicas"
+      ],
+      "classification": "Bakteri",
+      "classification_group": "Bacteria",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "citrus-canker",
       "name": "Xanthomonas citri pv. citri",
       "common": "Kanker jeruk",
-      "category": "Bacteria",
+      "category": "Bakteri",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Jeruk"
@@ -2644,13 +3185,17 @@
         "Lesi gabus",
         "Halo kuning",
         "Lesi pada daun dan buah"
-      ]
+      ],
+      "images": [],
+      "classification": "Bakteri",
+      "classification_group": "Bacteria",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "fusarium-cepae",
       "name": "Fusarium oxysporum f. sp. cepae",
       "common": "Busuk pangkal Fusarium / moler",
-      "category": "Fungi",
+      "category": "Jamur",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Bawang merah",
@@ -2662,11 +3207,9 @@
         "Akar dan pangkal umbi mengalami pembusukan",
         "Pangkal umbi dapat mengalami nekrosis dan membusuk"
       ],
-      "notes": "Patogen penting pada Allium. Pada bawang merah dikenal sebagai salah satu penyebab penyakit moler/busuk pangkal.",
+      "notes": "Fusarium oxysporum f. sp. cepae dikaitkan dengan busuk pangkal/basal plate rot pada bawang merah. Identifikasi forma specialis tidak sebaiknya ditentukan hanya dari gejala visual.",
       "references": [
-        "Sintayehu et al. (2011), Crop Protection — Fusarium basal rot of shallot",
-        "Nugroho et al. (2015), Agrosains — moler pada bawang merah",
-        "Marianah et al. (2024), Biodiversitas — Fusarium spp. associated with basal plate rot of shallot"
+        "UC IPM Onion & Garlic diseases"
       ],
       "confidence_note": "Identifikasi spesies/forma specialis tidak sebaiknya ditentukan hanya dari gejala visual.",
       "aliases": [
@@ -2676,28 +3219,52 @@
       ],
       "images": [
         {
-          "image_type": "organism",
+          "image_type": "symptom_reference",
           "local_path": "",
-          "remote_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/K7725-1-sm.jpg",
-          "source_url": "https://commons.wikimedia.org/wiki/File:K7725-1-sm.jpg",
-          "source_name": "Wikimedia Commons / USDA",
-          "license": "Public domain",
-          "author": "Keith Weller / USDA-ARS",
-          "attribution": "Plant-pathogenic strain of Fusarium oxysporum — Keith Weller, USDA-ARS, public domain.",
-          "notes": "Generic F. oxysporum reference image; not a shallot-specific symptom photo."
+          "remote_url": "https://ipm.ucanr.edu/PMG/IMAGES/F/D-OG-FOXC-FO.003.jpg",
+          "source_url": "https://ipm.ucanr.edu/PMG/F/D-OG-FOXC-FO.003.html",
+          "attribution": "UC IPM — Jack Kelly Clark",
+          "notes": "Foto gejala Fusarium basal rot pada bawang; digunakan sebagai referensi visual."
+        },
+        {
+          "image_type": "ai_illustration",
+          "local_path": "assets/opt/photos/fusarium-cepae.webp",
+          "remote_url": "",
+          "source_url": "",
+          "attribution": "Crop Expert — ilustrasi AI",
+          "notes": "Ilustrasi AI untuk pembelajaran bentuk/gejala; BUKAN foto diagnostik."
         }
       ],
       "eppo": {
         "code": "FUSACE",
         "url": "https://gd.eppo.int/taxon/FUSACE/photos",
         "name": "Fusarium oxysporum f. sp. cepae"
-      }
+      },
+      "description": "Fusarium oxysporum f. sp. cepae menyebabkan busuk pangkal (basal plate rot) pada bawang merah. Infeksi berasal dari tanah dan menyerang akar serta pangkal umbi; tanaman dapat kerdil, daun menguning/melintir dan layu, kemudian umbi membusuk.",
+      "diagnostic": "Periksa pangkal umbi dan akar. Pemotongan membujur dapat menunjukkan perubahan warna cokelat pada basal plate. Diagnosis forma specialis tidak dapat dipastikan hanya dari gejala visual.",
+      "favorable_conditions": "Risiko meningkat pada lahan dengan riwayat penyakit dan kondisi yang mendukung patogen tular tanah.",
+      "importance": "Penting",
+      "crop_importance": {
+        "bawang": "Penting"
+      },
+      "life_cycle_reference": {
+        "stages": [
+          "Sumber inokulum di tanah/sisa tanaman",
+          "Infeksi akar/pangkal",
+          "Kolonisasi jaringan",
+          "Pembentukan inokulum & bertahan di tanah"
+        ],
+        "source_note": "Foto gejala spesifik busuk pangkal bawang tersedia pada WSU/UC IPM; visual lokal adalah ilustrasi AI fallback."
+      },
+      "classification": "Jamur",
+      "classification_group": "Fungi",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "rice-brown-spot",
       "name": "Bipolaris oryzae",
       "common": "Bercak cokelat padi",
-      "category": "Fungi",
+      "category": "Jamur",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Padi"
@@ -2712,13 +3279,17 @@
         "code": "COCHMI",
         "url": "https://gd.eppo.int/taxon/COCHMI/photos",
         "name": "Bipolaris oryzae"
-      }
+      },
+      "images": [],
+      "classification": "Jamur",
+      "classification_group": "Fungi",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "rice-bacterial-leaf-streak",
       "name": "Xanthomonas oryzae pv. oryzicola",
       "common": "Bacterial leaf streak / hawar daun bergaris",
-      "category": "Bacteria",
+      "category": "Bakteri",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Padi"
@@ -2733,13 +3304,17 @@
         "code": "XANTTO",
         "url": "https://gd.eppo.int/taxon/XANTTO/photos",
         "name": "Xanthomonas oryzae pv. oryzicola"
-      }
+      },
+      "images": [],
+      "classification": "Bakteri",
+      "classification_group": "Bacteria",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "rice-bakanae",
       "name": "Fusarium fujikuroi",
       "common": "Bakanae padi",
-      "category": "Fungi",
+      "category": "Jamur",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Padi"
@@ -2754,13 +3329,17 @@
         "code": "FUSAFJ",
         "url": "https://gd.eppo.int/taxon/FUSAFJ/photos",
         "name": "Fusarium fujikuroi"
-      }
+      },
+      "images": [],
+      "classification": "Jamur",
+      "classification_group": "Fungi",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "rice-false-smut",
       "name": "Ustilaginoidea virens",
       "common": "False smut / gosong palsu padi",
-      "category": "Fungi",
+      "category": "Jamur",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Padi"
@@ -2775,13 +3354,17 @@
         "code": "USTIVI",
         "url": "https://gd.eppo.int/taxon/USTIVI/photos",
         "name": "Ustilaginoidea virens"
-      }
+      },
+      "images": [],
+      "classification": "Jamur",
+      "classification_group": "Fungi",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "rice-narrow-brown-leaf-spot",
       "name": "Cercospora janseana",
       "common": "Narrow brown leaf spot",
-      "category": "Fungi",
+      "category": "Jamur",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Padi"
@@ -2796,35 +3379,17 @@
         "code": "CERCOR",
         "url": "https://gd.eppo.int/taxon/CERCOR/photos",
         "name": "Cercospora janseana"
-      }
-    },
-    {
-      "id": "onion-purple-blotch",
-      "name": "Alternaria porri",
-      "common": "Bercak ungu bawang",
-      "category": "Fungi",
-      "icon": "disease-leaf.svg",
-      "hosts": [
-        "Bawang merah",
-        "Bawang bombai"
-      ],
-      "symptoms": [
-        "Bercak kecil berair lalu membesar",
-        "Bercak ungu kecokelatan",
-        "Daun mengering dari area terserang"
-      ],
-      "notes": "Purple blotch pada Allium.",
-      "eppo": {
-        "code": "ALTEPO",
-        "url": "https://gd.eppo.int/taxon/ALTEPO/photos",
-        "name": "Alternaria porri"
-      }
+      },
+      "images": [],
+      "classification": "Jamur",
+      "classification_group": "Fungi",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "onion-downy-mildew",
       "name": "Peronospora destructor",
       "common": "Embun bulu bawang",
-      "category": "Oomycete",
+      "category": "Jamur Basah",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Bawang merah",
@@ -2840,13 +3405,53 @@
         "code": "PERODE",
         "url": "https://gd.eppo.int/taxon/PERODE/photos",
         "name": "Peronospora destructor"
-      }
+      },
+      "description": "Embun bulu bawang disebabkan Peronospora destructor. Daun dapat pucat, rebah dan mengering; pada kondisi lembap terlihat pertumbuhan/sporulasi abu-ungu pada permukaan daun.",
+      "diagnostic": "Periksa daun terutama saat pagi lembap untuk menemukan sporulasi abu-ungu. Bedakan dari bercak ungu dan kerusakan thrips.",
+      "favorable_conditions": "Kelembapan tinggi dan daun basah mendukung penyakit.",
+      "importance": "Penting",
+      "crop_importance": {
+        "bawang": "Penting"
+      },
+      "references": [
+        "UC IPM Onion & Garlic diseases"
+      ],
+      "images": [
+        {
+          "image_type": "symptom_reference",
+          "local_path": "",
+          "remote_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Peronospora_destructor.JPG",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Peronospora_destructor.JPG",
+          "attribution": "Wikimedia Commons — source/licence on file page",
+          "notes": "Foto referensi berlisensi/sumber publik; cek halaman sumber untuk ketentuan penggunaan."
+        },
+        {
+          "image_type": "ai_illustration",
+          "local_path": "assets/opt/photos/onion-downy-mildew.webp",
+          "remote_url": "",
+          "source_url": "",
+          "attribution": "Crop Expert — ilustrasi AI",
+          "notes": "Ilustrasi AI untuk pembelajaran bentuk/gejala; BUKAN foto diagnostik."
+        }
+      ],
+      "life_cycle_reference": {
+        "stages": [
+          "Oospora/inokulum bertahan",
+          "Infeksi daun saat basah",
+          "Sporulasi",
+          "Penyebaran & infeksi sekunder"
+        ],
+        "source_note": "Urutan siklus disederhanakan untuk pembelajaran; durasi aktual bergantung suhu, inang, varietas dan kondisi lapangan."
+      },
+      "classification": "Jamur Basah",
+      "classification_group": "Oomycetes",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "onion-stemphylium",
       "name": "Stemphylium vesicarium",
       "common": "Bercak daun Stemphylium bawang",
-      "category": "Fungi",
+      "category": "Jamur",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Bawang merah",
@@ -2862,13 +3467,26 @@
         "code": "STEMVE",
         "url": "https://gd.eppo.int/taxon/STEMVE/photos",
         "name": "Stemphylium vesicarium"
-      }
+      },
+      "description": "Bercak daun Stemphylium menyebabkan lesi cokelat pada daun yang dapat membesar dan menyatu hingga daun mengering pada serangan berat.",
+      "diagnostic": "Periksa pola lesi dan kondisi kelembapan; konfirmasi patogen secara laboratorium bila identitas diperlukan.",
+      "importance": "Penting",
+      "crop_importance": {
+        "bawang": "Penting"
+      },
+      "references": [
+        "UC IPM Onion & Garlic diseases"
+      ],
+      "images": [],
+      "classification": "Jamur",
+      "classification_group": "Fungi",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "chili-phytophthora-capsici",
       "name": "Phytophthora capsici",
       "common": "Layu/busuk Phytophthora pada cabai",
-      "category": "Oomycete",
+      "category": "Jamur Basah",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Cabai"
@@ -2884,13 +3502,53 @@
         "code": "PHYTCP",
         "url": "https://gd.eppo.int/taxon/PHYTCP/photos",
         "name": "Phytophthora capsici"
-      }
+      },
+      "description": "Phytophthora capsici dapat menyebabkan busuk akar/pangkal dan layu pada cabai; buah juga dapat mengalami busuk terutama ketika kondisi sangat basah.",
+      "diagnostic": "Periksa pangkal batang, akar dan buah. Gejala sering lebih berat pada lahan dengan drainase buruk atau kondisi basah.",
+      "favorable_conditions": "Kondisi basah dan drainase buruk meningkatkan risiko.",
+      "importance": "Penting",
+      "crop_importance": {
+        "cabai": "Penting"
+      },
+      "references": [
+        "UC IPM Peppers"
+      ],
+      "images": [
+        {
+          "image_type": "symptom_reference",
+          "local_path": "",
+          "remote_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Capsicum_annuum_with_Phytophthora_capsici.jpg",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Capsicum_annuum_with_Phytophthora_capsici.jpg",
+          "attribution": "Wikimedia Commons — source/licence on file page",
+          "notes": "Foto referensi berlisensi/sumber publik; cek halaman sumber untuk ketentuan penggunaan."
+        },
+        {
+          "image_type": "ai_illustration",
+          "local_path": "assets/opt/photos/chili-phytophthora-capsici.webp",
+          "remote_url": "",
+          "source_url": "",
+          "attribution": "Crop Expert — ilustrasi AI",
+          "notes": "Ilustrasi AI untuk pembelajaran bentuk/gejala; BUKAN foto diagnostik."
+        }
+      ],
+      "life_cycle_reference": {
+        "stages": [
+          "Sporangia/oospora",
+          "Zoospora & infeksi",
+          "Kolonisasi jaringan",
+          "Sporulasi & penyebaran air"
+        ],
+        "source_note": "Urutan siklus disederhanakan untuk pembelajaran; durasi aktual bergantung suhu, inang, varietas dan kondisi lapangan."
+      },
+      "classification": "Jamur Basah",
+      "classification_group": "Oomycetes",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "chili-cercospora",
       "name": "Cercospora capsici",
       "common": "Bercak daun Cercospora cabai",
-      "category": "Fungi",
+      "category": "Jamur",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Cabai"
@@ -2905,53 +3563,17 @@
         "code": "CERCCP",
         "url": "https://gd.eppo.int/taxon/CERCCP/photos",
         "name": "Cercospora capsici"
-      }
-    },
-    {
-      "id": "chili-bacterial-spot",
-      "name": "Xanthomonas spp.",
-      "common": "Bercak bakteri cabai",
-      "category": "Bacteria",
-      "icon": "disease-leaf.svg",
-      "hosts": [
-        "Cabai"
-      ],
-      "symptoms": [
-        "Bercak kecil pada daun",
-        "Lesi pada buah",
-        "Daun dapat gugur",
-        "Bercak dapat tampak berair pada awal infeksi"
-      ],
-      "notes": "Kelompok Xanthomonas yang menyerang Capsicum perlu dibedakan sampai tingkat spesies/pathovar bila diperlukan.",
-      "eppo": {
-        "code": "XANTHO",
-        "url": "https://gd.eppo.int/taxon/XANTHO/photos",
-        "name": "Xanthomonas"
-      }
-    },
-    {
-      "id": "chili-anthracnose-complex",
-      "name": "Colletotrichum spp.",
-      "common": "Antraknosa cabai",
-      "category": "Fungi",
-      "icon": "disease-leaf.svg",
-      "hosts": [
-        "Cabai"
-      ],
-      "symptoms": [
-        "Lesi cekung pada buah",
-        "Bercak membesar konsentris",
-        "Buah membusuk",
-        "Spora dapat muncul pada jaringan terserang"
-      ],
-      "notes": "Antraknosa cabai merupakan kompleks Colletotrichum; spesies penyebab perlu dikonfirmasi bila diperlukan.",
-      "images": []
+      },
+      "images": [],
+      "classification": "Jamur",
+      "classification_group": "Fungi",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "stromatinia-cepivorum",
       "name": "Stromatinia cepivorum",
       "common": "Busuk putih bawang",
-      "category": "Fungi",
+      "category": "Jamur",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Bawang merah",
@@ -2966,13 +3588,16 @@
         "EPPO PP 2/4 Allium Crops",
         "EPPO PP 2/17 Maize",
         "EPPO PP 2/7 Vegetable Brassicas"
-      ]
+      ],
+      "classification": "Jamur",
+      "classification_group": "Fungi",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "botryotinia-squamosa",
       "name": "Botryotinia squamosa",
       "common": "Bercak daun/daun busuk bawang",
-      "category": "Fungi",
+      "category": "Jamur",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Bawang"
@@ -2984,13 +3609,16 @@
         "EPPO PP 2/4 Allium Crops",
         "EPPO PP 2/17 Maize",
         "EPPO PP 2/7 Vegetable Brassicas"
-      ]
+      ],
+      "classification": "Jamur",
+      "classification_group": "Fungi",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "phytophthora-porri",
       "name": "Phytophthora porri",
       "common": "Ujung putih",
-      "category": "Fungi-like",
+      "category": "Jamur Basah",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Bawang daun",
@@ -3003,45 +3631,84 @@
         "EPPO PP 2/4 Allium Crops",
         "EPPO PP 2/17 Maize",
         "EPPO PP 2/7 Vegetable Brassicas"
-      ]
+      ],
+      "classification": "Jamur Basah",
+      "classification_group": "Oomycetes",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "alternaria-porri",
       "name": "Alternaria porri",
       "common": "Bercak ungu",
-      "category": "Fungi",
+      "category": "Jamur",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Bawang merah",
         "Bawang bombai",
         "Bawang daun"
       ],
-      "symptoms": [],
+      "symptoms": [
+        "Bercak kecil berair lalu membesar",
+        "Bercak ungu kecokelatan",
+        "Daun mengering dari area terserang"
+      ],
       "notes": "Data sumber EPPO Guidelines on Good Plant Protection Practice; pedoman bersifat regional dan historis, bukan bukti registrasi Indonesia.",
       "images": [
         {
-          "image_type": "symptom",
+          "image_type": "symptom_reference",
           "local_path": "",
           "remote_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Alternaria_porri.jpg",
           "source_url": "https://commons.wikimedia.org/wiki/File:Alternaria_porri.jpg",
-          "source_name": "Wikimedia Commons / New Zealand Fungal and Plant Disease Collection",
-          "license": "CC BY 3.0",
-          "author": "See source page",
-          "attribution": "Alternaria porri — Wikimedia Commons.",
-          "notes": "Foto Alternaria porri pada daun; CC BY 3.0."
+          "attribution": "Wikimedia Commons — CC BY-SA licence on file page",
+          "notes": "Foto referensi berlisensi/sumber publik; cek halaman sumber untuk ketentuan penggunaan."
+        },
+        {
+          "image_type": "ai_illustration",
+          "local_path": "assets/opt/photos/alternaria-porri.webp",
+          "remote_url": "",
+          "source_url": "",
+          "attribution": "Crop Expert — ilustrasi AI",
+          "notes": "Ilustrasi AI untuk pembelajaran bentuk/gejala; BUKAN foto diagnostik."
         }
       ],
       "source_refs": [
         "EPPO PP 2/4 Allium Crops",
         "EPPO PP 2/17 Maize",
         "EPPO PP 2/7 Vegetable Brassicas"
-      ]
+      ],
+      "eppo": {
+        "code": "ALTEPO",
+        "url": "https://gd.eppo.int/taxon/ALTEPO/photos",
+        "name": "Alternaria porri"
+      },
+      "description": "Bercak ungu (purple blotch) menyebabkan lesi pada daun yang berkembang menjadi bercak ungu-kecokelatan dan dapat menyebabkan jaringan daun mengering. Penyakit penting pada Allium.",
+      "diagnostic": "Cari lesi memanjang/oval berwarna cokelat-ungu dengan jaringan mengering di sekitarnya; gejala dapat mirip dengan bercak daun lain sehingga kondisi lapangan perlu diperhatikan.",
+      "favorable_conditions": "Kelembapan daun tinggi dan periode basah yang panjang mendukung perkembangan penyakit daun.",
+      "importance": "Penting",
+      "crop_importance": {
+        "bawang": "Penting"
+      },
+      "references": [
+        "UC IPM Onion & Garlic diseases"
+      ],
+      "life_cycle_reference": {
+        "stages": [
+          "Inokulum pada sisa tanaman",
+          "Infeksi daun",
+          "Lesi & pembentukan konidia",
+          "Penyebaran oleh angin/percikan"
+        ],
+        "source_note": "Urutan siklus disederhanakan untuk pembelajaran; durasi aktual bergantung suhu, inang, varietas dan kondisi lapangan."
+      },
+      "classification": "Jamur",
+      "classification_group": "Fungi",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "cladosporium-allii",
       "name": "Cladosporium spp.",
       "common": "Bercak daun Cladosporium",
-      "category": "Fungi",
+      "category": "Jamur",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Bawang"
@@ -3053,13 +3720,16 @@
         "EPPO PP 2/4 Allium Crops",
         "EPPO PP 2/17 Maize",
         "EPPO PP 2/7 Vegetable Brassicas"
-      ]
+      ],
+      "classification": "Jamur",
+      "classification_group": "Fungi",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "puccinia-allii",
       "name": "Puccinia allii",
       "common": "Karat bawang",
-      "category": "Fungi",
+      "category": "Jamur",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Bawang putih",
@@ -3072,13 +3742,16 @@
         "EPPO PP 2/4 Allium Crops",
         "EPPO PP 2/17 Maize",
         "EPPO PP 2/7 Vegetable Brassicas"
-      ]
+      ],
+      "classification": "Jamur",
+      "classification_group": "Fungi",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "urocystis-cepulae",
       "name": "Urocystis cepulae",
       "common": "Gosong bawang",
-      "category": "Fungi",
+      "category": "Jamur",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Bawang"
@@ -3090,31 +3763,72 @@
         "EPPO PP 2/4 Allium Crops",
         "EPPO PP 2/17 Maize",
         "EPPO PP 2/7 Vegetable Brassicas"
-      ]
+      ],
+      "classification": "Jamur",
+      "classification_group": "Fungi",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "botrytis-aclada",
       "name": "Botrytis aclada",
       "common": "Busuk leher bawang",
-      "category": "Fungi",
+      "category": "Jamur",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Bawang"
       ],
       "symptoms": [],
       "notes": "Data sumber EPPO Guidelines on Good Plant Protection Practice; pedoman bersifat regional dan historis, bukan bukti registrasi Indonesia.",
-      "images": [],
+      "images": [
+        {
+          "image_type": "symptom_reference",
+          "local_path": "",
+          "remote_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Botryis_allii_a1.jpg",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Botryis_allii_a1.jpg",
+          "attribution": "Wikimedia Commons — CC BY-SA 4.0",
+          "notes": "Foto referensi berlisensi/sumber publik; cek halaman sumber untuk ketentuan penggunaan."
+        },
+        {
+          "image_type": "ai_illustration",
+          "local_path": "assets/opt/photos/botrytis-aclada.webp",
+          "remote_url": "",
+          "source_url": "",
+          "attribution": "Crop Expert — ilustrasi AI",
+          "notes": "Ilustrasi AI untuk pembelajaran bentuk/gejala; BUKAN foto diagnostik."
+        }
+      ],
       "source_refs": [
         "EPPO PP 2/4 Allium Crops",
         "EPPO PP 2/17 Maize",
         "EPPO PP 2/7 Vegetable Brassicas"
-      ]
+      ],
+      "description": "Botrytis aclada/allii dapat menyebabkan busuk leher dan umbi pada Allium. Gejala sering terlihat sebagai pelunakan dan pembusukan jaringan leher/umbi dan dapat berkembang saat penyimpanan.",
+      "diagnostic": "Periksa leher umbi yang melunak/berair dan perkembangan jamur abu-abu; penyakit dapat mulai dari lapangan lalu berkembang saat penyimpanan.",
+      "importance": "Penting",
+      "crop_importance": {
+        "bawang": "Penting"
+      },
+      "references": [
+        "UC IPM Onion & Garlic diseases"
+      ],
+      "life_cycle_reference": {
+        "stages": [
+          "Inokulum bertahan pada jaringan/sisa",
+          "Infeksi",
+          "Kolonisasi & busuk",
+          "Sporulasi/penyebaran"
+        ],
+        "source_note": "Urutan siklus disederhanakan untuk pembelajaran; durasi aktual bergantung suhu, inang, varietas dan kondisi lapangan."
+      },
+      "classification": "Jamur",
+      "classification_group": "Fungi",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "colletotrichum-circinans",
       "name": "Colletotrichum dematium f.sp. circinans",
       "common": "Smudge/bercak gelap bawang",
-      "category": "Fungi",
+      "category": "Jamur",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Bawang"
@@ -3126,13 +3840,16 @@
         "EPPO PP 2/4 Allium Crops",
         "EPPO PP 2/17 Maize",
         "EPPO PP 2/7 Vegetable Brassicas"
-      ]
+      ],
+      "classification": "Jamur",
+      "classification_group": "Fungi",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "pyrenochaeta-terrestris",
       "name": "Pyrenochaeta terrestris",
       "common": "Akar merah muda",
-      "category": "Fungi",
+      "category": "Jamur",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Bawang"
@@ -3144,13 +3861,16 @@
         "EPPO PP 2/4 Allium Crops",
         "EPPO PP 2/17 Maize",
         "EPPO PP 2/7 Vegetable Brassicas"
-      ]
+      ],
+      "classification": "Jamur",
+      "classification_group": "Fungi",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "fusarium-culmorum",
       "name": "Fusarium culmorum",
       "common": "Busuk pangkal/kaki",
-      "category": "Fungi",
+      "category": "Jamur",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Bawang",
@@ -3163,13 +3883,16 @@
         "EPPO PP 2/4 Allium Crops",
         "EPPO PP 2/17 Maize",
         "EPPO PP 2/7 Vegetable Brassicas"
-      ]
+      ],
+      "classification": "Jamur",
+      "classification_group": "Fungi",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "aspergillus-niger",
       "name": "Aspergillus niger",
       "common": "Kapang hitam bawang",
-      "category": "Fungi",
+      "category": "Jamur",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Bawang"
@@ -3181,13 +3904,16 @@
         "EPPO PP 2/4 Allium Crops",
         "EPPO PP 2/17 Maize",
         "EPPO PP 2/7 Vegetable Brassicas"
-      ]
+      ],
+      "classification": "Jamur",
+      "classification_group": "Fungi",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "penicillium-spp",
       "name": "Penicillium spp.",
       "common": "Kapang biru",
-      "category": "Fungi",
+      "category": "Jamur",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Bawang"
@@ -3199,13 +3925,16 @@
         "EPPO PP 2/4 Allium Crops",
         "EPPO PP 2/17 Maize",
         "EPPO PP 2/7 Vegetable Brassicas"
-      ]
+      ],
+      "classification": "Jamur",
+      "classification_group": "Fungi",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "burkholderia-gladioli-alliicola",
       "name": "Burkholderia gladioli pv. alliicola",
       "common": "Busuk leher bakteri",
-      "category": "Bacteria",
+      "category": "Bakteri",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Bawang"
@@ -3217,13 +3946,16 @@
         "EPPO PP 2/4 Allium Crops",
         "EPPO PP 2/17 Maize",
         "EPPO PP 2/7 Vegetable Brassicas"
-      ]
+      ],
+      "classification": "Bakteri",
+      "classification_group": "Bacteria",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "setosphaeria-turcica",
       "name": "Setosphaeria turcica",
       "common": "Hawar daun utara jagung",
-      "category": "Fungi",
+      "category": "Jamur",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Jagung"
@@ -3235,13 +3967,16 @@
         "EPPO PP 2/4 Allium Crops",
         "EPPO PP 2/17 Maize",
         "EPPO PP 2/7 Vegetable Brassicas"
-      ]
+      ],
+      "classification": "Jamur",
+      "classification_group": "Fungi",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "sphacelotheca-reiliana",
       "name": "Sphacelotheca reiliana",
       "common": "Gosong kepala jagung",
-      "category": "Fungi",
+      "category": "Jamur",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Jagung"
@@ -3253,13 +3988,16 @@
         "EPPO PP 2/4 Allium Crops",
         "EPPO PP 2/17 Maize",
         "EPPO PP 2/7 Vegetable Brassicas"
-      ]
+      ],
+      "classification": "Jamur",
+      "classification_group": "Fungi",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "ustilago-maydis",
       "name": "Ustilago maydis",
       "common": "Gosong jagung",
-      "category": "Fungi",
+      "category": "Jamur",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Jagung"
@@ -3283,13 +4021,16 @@
         "EPPO PP 2/4 Allium Crops",
         "EPPO PP 2/17 Maize",
         "EPPO PP 2/7 Vegetable Brassicas"
-      ]
+      ],
+      "classification": "Jamur",
+      "classification_group": "Fungi",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "pythium-maize",
       "name": "Pythium spp.",
       "common": "Pencokelatan akar jagung",
-      "category": "Fungi-like",
+      "category": "Jamur Basah",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Jagung"
@@ -3301,13 +4042,16 @@
         "EPPO PP 2/4 Allium Crops",
         "EPPO PP 2/17 Maize",
         "EPPO PP 2/7 Vegetable Brassicas"
-      ]
+      ],
+      "classification": "Jamur Basah",
+      "classification_group": "Oomycetes",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "fusarium-maize",
       "name": "Fusarium spp.",
       "common": "Busuk akar, batang dan tongkol jagung",
-      "category": "Fungi",
+      "category": "Jamur",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Jagung"
@@ -3319,13 +4063,16 @@
         "EPPO PP 2/4 Allium Crops",
         "EPPO PP 2/17 Maize",
         "EPPO PP 2/7 Vegetable Brassicas"
-      ]
+      ],
+      "classification": "Jamur",
+      "classification_group": "Fungi",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "colletotrichum-graminicola",
       "name": "Colletotrichum graminicola",
       "common": "Antraknosa jagung",
-      "category": "Fungi",
+      "category": "Jamur",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Jagung"
@@ -3337,13 +4084,16 @@
         "EPPO PP 2/4 Allium Crops",
         "EPPO PP 2/17 Maize",
         "EPPO PP 2/7 Vegetable Brassicas"
-      ]
+      ],
+      "classification": "Jamur",
+      "classification_group": "Fungi",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "sclerophthora-macrospora",
       "name": "Sclerophthora macrospora",
       "common": "Bulai/top gila jagung",
-      "category": "Fungi-like",
+      "category": "Jamur Basah",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Jagung"
@@ -3355,13 +4105,16 @@
         "EPPO PP 2/4 Allium Crops",
         "EPPO PP 2/17 Maize",
         "EPPO PP 2/7 Vegetable Brassicas"
-      ]
+      ],
+      "classification": "Jamur Basah",
+      "classification_group": "Oomycetes",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "leptosphaeria-maculans",
       "name": "Leptosphaeria maculans",
       "common": "Kanker batang dan bercak daun Brassica",
-      "category": "Fungi",
+      "category": "Jamur",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Kubis",
@@ -3374,13 +4127,16 @@
         "EPPO PP 2/4 Allium Crops",
         "EPPO PP 2/17 Maize",
         "EPPO PP 2/7 Vegetable Brassicas"
-      ]
+      ],
+      "classification": "Jamur",
+      "classification_group": "Fungi",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "mycosphaerella-brassicicola",
       "name": "Mycosphaerella brassicicola",
       "common": "Bercak cincin Brassica",
-      "category": "Fungi",
+      "category": "Jamur",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Kubis",
@@ -3393,13 +4149,16 @@
         "EPPO PP 2/4 Allium Crops",
         "EPPO PP 2/17 Maize",
         "EPPO PP 2/7 Vegetable Brassicas"
-      ]
+      ],
+      "classification": "Jamur",
+      "classification_group": "Fungi",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "peronospora-parasitica",
       "name": "Peronospora parasitica",
       "common": "Embun bulu Brassica",
-      "category": "Fungi-like",
+      "category": "Jamur Basah",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Kubis",
@@ -3412,13 +4171,16 @@
         "EPPO PP 2/4 Allium Crops",
         "EPPO PP 2/17 Maize",
         "EPPO PP 2/7 Vegetable Brassicas"
-      ]
+      ],
+      "classification": "Jamur Basah",
+      "classification_group": "Oomycetes",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "albugo-candida",
       "name": "Albugo candida",
       "common": "Karatan/blas putih Brassica",
-      "category": "Fungi-like",
+      "category": "Jamur Basah",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Kubis",
@@ -3431,13 +4193,16 @@
         "EPPO PP 2/4 Allium Crops",
         "EPPO PP 2/17 Maize",
         "EPPO PP 2/7 Vegetable Brassicas"
-      ]
+      ],
+      "classification": "Jamur Basah",
+      "classification_group": "Oomycetes",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "erysiphe-cruciferarum",
       "name": "Erysiphe cruciferarum",
       "common": "Embun tepung Brassica",
-      "category": "Fungi",
+      "category": "Jamur",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Kubis",
@@ -3450,13 +4215,16 @@
         "EPPO PP 2/4 Allium Crops",
         "EPPO PP 2/17 Maize",
         "EPPO PP 2/7 Vegetable Brassicas"
-      ]
+      ],
+      "classification": "Jamur",
+      "classification_group": "Fungi",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "alternaria-brassicae",
       "name": "Alternaria brassicae",
       "common": "Bercak daun gelap Brassica",
-      "category": "Fungi",
+      "category": "Jamur",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Kubis",
@@ -3469,13 +4237,16 @@
         "EPPO PP 2/4 Allium Crops",
         "EPPO PP 2/17 Maize",
         "EPPO PP 2/7 Vegetable Brassicas"
-      ]
+      ],
+      "classification": "Jamur",
+      "classification_group": "Fungi",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "alternaria-brassicicola",
       "name": "Alternaria brassicicola",
       "common": "Bercak daun gelap Brassica",
-      "category": "Fungi",
+      "category": "Jamur",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Kubis",
@@ -3488,13 +4259,16 @@
         "EPPO PP 2/4 Allium Crops",
         "EPPO PP 2/17 Maize",
         "EPPO PP 2/7 Vegetable Brassicas"
-      ]
+      ],
+      "classification": "Jamur",
+      "classification_group": "Fungi",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "pyrenopeziza-brassicae",
       "name": "Pyrenopeziza brassicae",
       "common": "Bercak daun terang Brassica",
-      "category": "Fungi",
+      "category": "Jamur",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Kubis",
@@ -3507,13 +4281,16 @@
         "EPPO PP 2/4 Allium Crops",
         "EPPO PP 2/17 Maize",
         "EPPO PP 2/7 Vegetable Brassicas"
-      ]
+      ],
+      "classification": "Jamur",
+      "classification_group": "Fungi",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "botrytis-cinerea-brassica",
       "name": "Botrytis cinerea",
       "common": "Kapang abu-abu",
-      "category": "Fungi",
+      "category": "Jamur",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Kubis",
@@ -3526,32 +4303,16 @@
         "EPPO PP 2/4 Allium Crops",
         "EPPO PP 2/17 Maize",
         "EPPO PP 2/7 Vegetable Brassicas"
-      ]
-    },
-    {
-      "id": "rhizoctonia-solani-brassica",
-      "name": "Rhizoctonia solani",
-      "common": "Wirestem/busuk pangkal",
-      "category": "Fungi",
-      "icon": "disease-leaf.svg",
-      "hosts": [
-        "Kubis",
-        "Brassica"
       ],
-      "symptoms": [],
-      "notes": "Data sumber EPPO Guidelines on Good Plant Protection Practice; pedoman bersifat regional dan historis, bukan bukti registrasi Indonesia.",
-      "images": [],
-      "source_refs": [
-        "EPPO PP 2/4 Allium Crops",
-        "EPPO PP 2/17 Maize",
-        "EPPO PP 2/7 Vegetable Brassicas"
-      ]
+      "classification": "Jamur",
+      "classification_group": "Fungi",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "plasmodiophora-brassicae",
       "name": "Plasmodiophora brassicae",
       "common": "Akar gada",
-      "category": "Fungi-like",
+      "category": "Jamur Basah",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Kubis",
@@ -3564,13 +4325,16 @@
         "EPPO PP 2/4 Allium Crops",
         "EPPO PP 2/17 Maize",
         "EPPO PP 2/7 Vegetable Brassicas"
-      ]
+      ],
+      "classification": "Jamur Basah",
+      "classification_group": "Plasmodiophorids (bukan Oomycetes)",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "phytophthora-brassica",
       "name": "Phytophthora spp.",
       "common": "Busuk akar/penyimpanan",
-      "category": "Fungi-like",
+      "category": "Jamur Basah",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Kubis",
@@ -3583,13 +4347,16 @@
         "EPPO PP 2/4 Allium Crops",
         "EPPO PP 2/17 Maize",
         "EPPO PP 2/7 Vegetable Brassicas"
-      ]
+      ],
+      "classification": "Jamur Basah",
+      "classification_group": "Oomycetes",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "verticillium-dahliae",
       "name": "Verticillium dahliae",
       "common": "Layu Verticillium",
-      "category": "Fungi",
+      "category": "Jamur",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Kubis",
@@ -3602,32 +4369,16 @@
         "EPPO PP 2/4 Allium Crops",
         "EPPO PP 2/17 Maize",
         "EPPO PP 2/7 Vegetable Brassicas"
-      ]
-    },
-    {
-      "id": "xanthomonas-campestris",
-      "name": "Xanthomonas campestris pv. campestris",
-      "common": "Busuk hitam",
-      "category": "Bacteria",
-      "icon": "disease-leaf.svg",
-      "hosts": [
-        "Kubis",
-        "Brassica"
       ],
-      "symptoms": [],
-      "notes": "Data sumber EPPO Guidelines on Good Plant Protection Practice; pedoman bersifat regional dan historis, bukan bukti registrasi Indonesia.",
-      "images": [],
-      "source_refs": [
-        "EPPO PP 2/4 Allium Crops",
-        "EPPO PP 2/17 Maize",
-        "EPPO PP 2/7 Vegetable Brassicas"
-      ]
+      "classification": "Jamur",
+      "classification_group": "Fungi",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "erwinia-pseudomonas-brassica",
       "name": "Erwinia dan Pseudomonas spp.",
       "common": "Busuk lunak",
-      "category": "Bacteria",
+      "category": "Bakteri",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Kubis",
@@ -3640,13 +4391,16 @@
         "EPPO PP 2/4 Allium Crops",
         "EPPO PP 2/17 Maize",
         "EPPO PP 2/7 Vegetable Brassicas"
-      ]
+      ],
+      "classification": "Bakteri",
+      "classification_group": "Bacteria",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "pseudomonas-syringae-maculicola",
       "name": "Pseudomonas syringae pv. maculicola",
       "common": "Bercak bakteri",
-      "category": "Bacteria",
+      "category": "Bakteri",
       "icon": "disease-leaf.svg",
       "hosts": [
         "Kubis",
@@ -3659,7 +4413,10 @@
         "EPPO PP 2/4 Allium Crops",
         "EPPO PP 2/17 Maize",
         "EPPO PP 2/7 Vegetable Brassicas"
-      ]
+      ],
+      "classification": "Bakteri",
+      "classification_group": "Bacteria",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "cauliflower-mosaic-virus",
@@ -3678,7 +4435,10 @@
         "EPPO PP 2/4 Allium Crops",
         "EPPO PP 2/17 Maize",
         "EPPO PP 2/7 Vegetable Brassicas"
-      ]
+      ],
+      "classification": "Virus",
+      "classification_group": "Virus",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "turnip-mosaic-virus",
@@ -3697,7 +4457,73 @@
         "EPPO PP 2/4 Allium Crops",
         "EPPO PP 2/17 Maize",
         "EPPO PP 2/7 Vegetable Brassicas"
-      ]
+      ],
+      "classification": "Virus",
+      "classification_group": "Virus",
+      "classification_source": "Crop Expert classification standard 2026"
+    },
+    {
+      "id": "pepylciv",
+      "name": "Pepper yellow leaf curl Indonesia virus (PepYLCIV)",
+      "common": "Daun keriting kuning cabai",
+      "category": "Virus",
+      "icon": "disease-leaf.svg",
+      "hosts": [
+        "Cabai"
+      ],
+      "symptoms": [
+        "Daun menguning dan mosaik",
+        "Daun menggulung/keriting",
+        "Ukuran daun mengecil",
+        "Tanaman kerdil"
+      ],
+      "description": "Penyakit daun keriting kuning cabai yang disebabkan Begomovirus/PepYLCIV. Penyakit ini dapat menyebar melalui kutu kebul Bemisia tabaci dan telah dilaporkan luas di sentra cabai Indonesia.",
+      "diagnostic": "Gejala visual dapat tumpang tindih dengan defisiensi hara dan penyakit virus lain; konfirmasi molekuler diperlukan untuk memastikan identitas virus.",
+      "importance": "Penting",
+      "crop_importance": {
+        "cabai": "Penting"
+      },
+      "references": [
+        {
+          "name": "Jurnal Perlindungan Tanaman Indonesia (UGM), 2025",
+          "url": "https://journal.ugm.ac.id/jpti/article/view/99401"
+        },
+        {
+          "name": "Jurnal Fitopatologi Indonesia, 2021",
+          "url": "https://journal.ipb.ac.id/jfiti/article/view/37226"
+        }
+      ],
+      "notes": "PepYLCIV termasuk Begomovirus; Bemisia tabaci merupakan vektor penting. Jangan menyimpulkan virus hanya dari foto tanpa konfirmasi diagnostik.",
+      "images": [
+        {
+          "image_type": "symptom_reference",
+          "local_path": "",
+          "remote_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kuning_cabai.JPG",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Kuning_cabai.JPG",
+          "attribution": "Wikimedia Commons — CC BY-SA 3.0",
+          "notes": "Foto referensi berlisensi/sumber publik; cek halaman sumber untuk ketentuan penggunaan."
+        },
+        {
+          "image_type": "ai_illustration",
+          "local_path": "assets/opt/photos/pepylciv.webp",
+          "remote_url": "",
+          "source_url": "",
+          "attribution": "Crop Expert — ilustrasi AI",
+          "notes": "Ilustrasi AI untuk pembelajaran bentuk/gejala; BUKAN foto diagnostik."
+        }
+      ],
+      "life_cycle_reference": {
+        "stages": [
+          "Virus bertahan pada inang",
+          "Ditularkan kutu kebul",
+          "Replikasi di jaringan",
+          "Penyebaran oleh vektor"
+        ],
+        "source_note": "Urutan siklus disederhanakan untuk pembelajaran; durasi aktual bergantung suhu, inang, varietas dan kondisi lapangan."
+      },
+      "classification": "Virus",
+      "classification_group": "Virus",
+      "classification_source": "Crop Expert classification standard 2026"
     }
   ],
   "weeds": [
@@ -3705,7 +4531,7 @@
       "id": "echinochloa",
       "name": "Echinochloa crus-galli",
       "common": "Jajagoan",
-      "category": "Grass",
+      "category": "Rumput",
       "icon": "weed-grass.svg",
       "hosts": [
         "Padi"
@@ -3725,13 +4551,16 @@
           "attribution": "Echinochloa crus-galli — Wikimedia Commons source.",
           "notes": "Robert H. Mohlenbrock / USDA-NRCS."
         }
-      ]
+      ],
+      "classification": "Rumput",
+      "classification_group": "Poaceae / grass",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "cyperus",
       "name": "Cyperus rotundus",
       "common": "Teki",
-      "category": "Sedge",
+      "category": "Daun Sempit",
       "icon": "weed-sedge.svg",
       "hosts": [
         "Jagung",
@@ -3754,13 +4583,16 @@
           "attribution": "Cyperus rotundus — Wikimedia Commons source.",
           "notes": "Cyperus iria category; selected photo file."
         }
-      ]
+      ],
+      "classification": "Daun Sempit",
+      "classification_group": "Cyperaceae / sedge",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "eleusine",
       "name": "Eleusine indica",
       "common": "Rambut belulang",
-      "category": "Grass",
+      "category": "Rumput",
       "icon": "weed-grass.svg",
       "hosts": [
         "Jagung",
@@ -3770,13 +4602,16 @@
       "symptoms": [
         "Rumput berumpun",
         "Kompetisi tinggi pada lahan terbuka"
-      ]
+      ],
+      "classification": "Rumput",
+      "classification_group": "Poaceae / grass",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "amaranthus",
       "name": "Amaranthus spinosus",
       "common": "Bayam duri",
-      "category": "Broadleaf",
+      "category": "Daun Lebar",
       "icon": "weed-broadleaf.svg",
       "hosts": [
         "Jagung",
@@ -3786,13 +4621,16 @@
       "symptoms": [
         "Tumbuh cepat",
         "Menghasilkan banyak biji"
-      ]
+      ],
+      "classification": "Daun Lebar",
+      "classification_group": "Broadleaf",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "ageratum",
       "name": "Ageratum conyzoides",
       "common": "Babadotan",
-      "category": "Broadleaf",
+      "category": "Daun Lebar",
       "icon": "weed-broadleaf.svg",
       "hosts": [
         "Jagung",
@@ -3802,18 +4640,40 @@
       "symptoms": [
         "Membentuk populasi rapat",
         "Kompetisi dengan tanaman utama"
-      ]
+      ],
+      "classification": "Daun Lebar",
+      "classification_group": "Broadleaf",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
-      "id": "monochoria",
+      "id": "fimb",
+      "name": "Fimbristylis miliacea",
+      "common": "Jekeng",
+      "category": "Daun Sempit",
+      "icon": "weed-sedge.svg",
+      "hosts": [
+        "Padi"
+      ],
+      "symptoms": [
+        "Tumbuh cepat pada lahan sawah",
+        "Kompetisi dengan padi"
+      ],
+      "classification": "Daun Sempit",
+      "classification_group": "Cyperaceae / sedge",
+      "classification_source": "Crop Expert classification standard 2026"
+    },
+    {
+      "id": "monochoria-vaginalis",
       "name": "Monochoria vaginalis",
       "common": "Eceng padi",
-      "category": "Aquatic",
+      "category": "Daun Lebar",
       "icon": "weed-broadleaf.svg",
       "hosts": [
         "Padi"
       ],
       "symptoms": [
+        "Menghambat pertumbuhan padi",
+        "Populasi tinggi menutup permukaan sawah",
         "Mengganggu pertumbuhan padi di sawah"
       ],
       "images": [
@@ -3828,41 +4688,16 @@
           "attribution": "Monochoria vaginalis — Wikimedia Commons source.",
           "notes": "Dinesh Valke; Monochoria vaginalis."
         }
-      ]
-    },
-    {
-      "id": "fimb",
-      "name": "Fimbristylis miliacea",
-      "common": "Jekeng",
-      "category": "Sedge",
-      "icon": "weed-sedge.svg",
-      "hosts": [
-        "Padi"
       ],
-      "symptoms": [
-        "Tumbuh cepat pada lahan sawah",
-        "Kompetisi dengan padi"
-      ]
-    },
-    {
-      "id": "monochoria-vaginalis",
-      "name": "Monochoria vaginalis",
-      "common": "Eceng padi",
-      "category": "Aquatic",
-      "icon": "weed-broadleaf.svg",
-      "hosts": [
-        "Padi"
-      ],
-      "symptoms": [
-        "Menghambat pertumbuhan padi",
-        "Populasi tinggi menutup permukaan sawah"
-      ]
+      "classification": "Daun Lebar",
+      "classification_group": "Broadleaf",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "ludwigia",
       "name": "Ludwigia hyssopifolia",
       "common": "Jukut weru / kayu apu sawah",
-      "category": "Broadleaf",
+      "category": "Daun Lebar",
       "icon": "weed-broadleaf.svg",
       "hosts": [
         "Padi"
@@ -3870,13 +4705,16 @@
       "symptoms": [
         "Tumbuh cepat pada sawah",
         "Bersaing dengan padi"
-      ]
+      ],
+      "classification": "Daun Lebar",
+      "classification_group": "Broadleaf",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "sphenochlea",
       "name": "Sphenochlea zeylanica",
       "common": "Gonda",
-      "category": "Broadleaf",
+      "category": "Daun Lebar",
       "icon": "weed-broadleaf.svg",
       "hosts": [
         "Padi"
@@ -3884,13 +4722,16 @@
       "symptoms": [
         "Populasi rapat",
         "Kompetisi pada lahan sawah"
-      ]
+      ],
+      "classification": "Daun Lebar",
+      "classification_group": "Broadleaf",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "ischaemum",
       "name": "Ischaemum rugosum",
       "common": "Ischaemum",
-      "category": "Grass",
+      "category": "Rumput",
       "icon": "weed-grass.svg",
       "hosts": [
         "Padi"
@@ -3898,13 +4739,16 @@
       "symptoms": [
         "Rumput berumpun",
         "Kompetisi kuat dengan padi"
-      ]
+      ],
+      "classification": "Rumput",
+      "classification_group": "Poaceae / grass",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "leptochloa",
       "name": "Leptochloa chinensis",
       "common": "Timunan",
-      "category": "Grass",
+      "category": "Rumput",
       "icon": "weed-grass.svg",
       "hosts": [
         "Padi"
@@ -3912,13 +4756,16 @@
       "symptoms": [
         "Tumbuh pada sawah",
         "Bersaing memperebutkan nutrisi"
-      ]
+      ],
+      "classification": "Rumput",
+      "classification_group": "Poaceae / grass",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "echinochloa-crus",
       "name": "Echinochloa colona",
       "common": "Jajagoan kecil",
-      "category": "Grass",
+      "category": "Rumput",
       "icon": "weed-grass.svg",
       "hosts": [
         "Padi",
@@ -3927,13 +4774,16 @@
       "symptoms": [
         "Rumput berumpun",
         "Tumbuh cepat pada kondisi terbuka"
-      ]
+      ],
+      "classification": "Rumput",
+      "classification_group": "Poaceae / grass",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "cyperus-difformis",
       "name": "Cyperus difformis",
       "common": "Teki kecil",
-      "category": "Sedge",
+      "category": "Daun Sempit",
       "icon": "weed-sedge.svg",
       "hosts": [
         "Padi"
@@ -3941,13 +4791,16 @@
       "symptoms": [
         "Tumbuh cepat pada sawah",
         "Menghasilkan banyak biji"
-      ]
+      ],
+      "classification": "Daun Sempit",
+      "classification_group": "Cyperaceae / sedge",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "portulaca",
       "name": "Portulaca oleracea",
       "common": "Krokot",
-      "category": "Broadleaf",
+      "category": "Daun Lebar",
       "icon": "weed-broadleaf.svg",
       "hosts": [
         "Sayuran",
@@ -3956,13 +4809,16 @@
       "symptoms": [
         "Tumbuh menjalar",
         "Bersaing pada lahan terbuka"
-      ]
+      ],
+      "classification": "Daun Lebar",
+      "classification_group": "Broadleaf",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "commelina",
       "name": "Commelina benghalensis",
       "common": "Gewor",
-      "category": "Broadleaf",
+      "category": "Daun Lebar",
       "icon": "weed-broadleaf.svg",
       "hosts": [
         "Jagung",
@@ -3971,13 +4827,16 @@
       "symptoms": [
         "Pertumbuhan menjalar",
         "Sulit ditekan bila sudah membentuk populasi"
-      ]
+      ],
+      "classification": "Daun Lebar",
+      "classification_group": "Broadleaf",
+      "classification_source": "Crop Expert classification standard 2026"
     },
     {
       "id": "mimosa",
       "name": "Mimosa pudica",
       "common": "Putri malu",
-      "category": "Broadleaf",
+      "category": "Daun Lebar",
       "icon": "weed-broadleaf.svg",
       "hosts": [
         "Perkebunan",
@@ -3986,7 +4845,10 @@
       "symptoms": [
         "Tumbuh menyemak",
         "Mengganggu akses dan kompetisi tanaman"
-      ]
+      ],
+      "classification": "Daun Lebar",
+      "classification_group": "Broadleaf",
+      "classification_source": "Crop Expert classification standard 2026"
     }
   ],
   "crops": [
@@ -3997,7 +4859,7 @@
       "icon": "crop-rice.svg",
       "related_opt": [
         "scirpophaga-incertulas",
-        "rhizoctonia-solani-brassica",
+        "rhizoctonia",
         "rice-narrow-brown-leaf-spot",
         "echinochloa"
       ]
@@ -4012,7 +4874,20 @@
         "helicoverpa-armigera",
         "colletotrichum",
         "chili-cercospora",
-        "phytophthora-brassica"
+        "phytophthora-brassica",
+        "thrips-parvispinus",
+        "bemisia-tabaci",
+        "aphis-gossypii",
+        "polyphagotarsonemus-latus",
+        "bactrocera-dorsalis",
+        "spodoptera-litura",
+        "liriomyza",
+        "colletotrichum",
+        "chili-phytophthora-capsici",
+        "fusarium",
+        "tomato-bacterial-wilt",
+        "pepylciv",
+        "xanthomonas"
       ]
     },
     {
@@ -4039,7 +4914,12 @@
         "alternaria-porri",
         "onion-downy-mildew",
         "fusarium",
-        "cyperus"
+        "cyperus",
+        "liriomyza",
+        "agrotis-ipsilon",
+        "fusarium-cepae",
+        "onion-stemphylium",
+        "botrytis-aclada"
       ]
     },
     {

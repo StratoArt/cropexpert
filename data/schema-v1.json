@@ -1,0 +1,24 @@
+{
+  "version": "1.0",
+  "purpose": "Canonical contract for Crop Expert data managed independently from UI code.",
+  "storage": {"current": "repository-json", "future": "Data Manager API / database"},
+  "layers": {
+    "master": ["crop", "opt", "product", "active_ingredient", "moa"],
+    "relations": ["crop_opt", "product_opt", "product_moa", "crop_product"],
+    "knowledge": ["nutrition", "growth_stage", "resistance_management", "mixing", "dose"],
+    "reference": ["source", "visual_attribution"]
+  },
+  "entities": {
+    "opt": {"id":"string","type":"pest|disease|weed","scientific_name":"string","common_name":"string","hosts":"array","symptoms":"array","images":"array"},
+    "crop": {"id":"string","name":"string","latin":"string","aliases":"array"},
+    "active_ingredient": {"id":"string","name":"string","committee":"array","moa_code":"array","chemical_class":"string","target_site":"string"},
+    "moa": {"committee":"IRAC|FRAC|HRAC","code":"string","mode_of_action":"string","chemical_class":"string","active_ingredients":"array"},
+    "product": {"id":"string","brand":"string","registrant":"string","active_ingredients":"array","formulation":"string","concentration":"string","registration":"object"}
+  },
+  "rules": [
+    "IDs are stable and referenced by relationships.",
+    "UI code must not become the source of truth for domain data.",
+    "Media paths are references, not embedded binary data.",
+    "Derived/reference datasets must not overwrite master entities automatically."
+  ]
+}

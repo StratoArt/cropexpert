@@ -1,4 +1,4 @@
-const state={committee:'IRAC',data:null,emerging:null,opt:null,imageSources:null,control:null,eppoLinks:null,formulations:null,pesticideKnowledge:null,pesticides:null,sources:null,agroKnowledge:null,fusarium:null,hamaSource:null,cropGrowth:null,cropNutritionProfiles:null,cropProfiles:null,nutrition:null,nutritionFilter:'ALL',nutritionSearch:'',libraryFilter:'ALL',librarySearch:'',search:'',group:'ALL',screen:'home',type:'Hama',pestFilter:'Semua',formulationFilter:'ALL',formulationSearch:'',pesticideFilter:'ALL',pesticideSearch:'',moaView:'ai',detailRef:null,deferredPrompt:null,historyReady:false,historyLock:false,targetCategory:'nerve-muscle',scanFile:null,lensSearch:''};
+const state={committee:'IRAC',data:null,emerging:null,opt:null,imageSources:null,control:null,eppoLinks:null,formulations:null,pesticideKnowledge:null,pesticides:null,sources:null,agroKnowledge:null,fusarium:null,hamaSource:null,cropGrowth:null,cropNutritionProfiles:null,cropProfiles:null,featuredPests:null,pesticideMoaGuide:null,nutrition:null,nutritionFilter:'ALL',nutritionSearch:'',libraryFilter:'ALL',librarySearch:'',search:'',group:'ALL',screen:'home',type:'Hama',pestFilter:'Semua',formulationFilter:'ALL',formulationSearch:'',pesticideFilter:'ALL',pesticideSearch:'',moaView:'ai',detailRef:null,deferredPrompt:null,historyReady:false,historyLock:false,targetCategory:'nerve-muscle',scanFile:null,lensSearch:''};
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const esc=s=>String(s??'').replace(/[&<>'"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[m]));
 const splitAI=s=>String(s||'').split(';').map(x=>x.trim()).filter(Boolean);
@@ -11,30 +11,8 @@ const moaLabel=x=>ID_MOA[x]||x;
 
 
 async function load(){
-  const [moa,emerging,opt,imageSources,control,eppoLinks,formulations,pesticideKnowledge,pesticides,sources,agroKnowledge,fusarium,hamaSource,cropGuidelines,targetMap,scanGuide,cropOptSources,cropGrowth,nutrition,cropNutritionProfiles,cropProfiles]=await Promise.all([
-    fetch('data/moa_master_2026.json').then(r=>r.json()),
-    fetch('data/emerging_actives.json').then(r=>r.json()),
-    fetch('data/opt.json').then(r=>r.json()),
-    fetch('data/image_sources.json').then(r=>r.json()),
-    fetch('data/opt_control.json').then(r=>r.json()),
-    fetch('data/eppo_links.json').then(r=>r.json()),
-    fetch('data/formulations.json').then(r=>r.json()),
-    fetch('data/pesticide_knowledge.json').then(r=>r.json()),
-    fetch('data/pesticide_database_id.json').then(r=>r.json()),
-    fetch('data/sources.json').then(r=>r.json()),
-    fetch('data/agrobiology_knowledge.json').then(r=>r.json()),
-    fetch('data/fusarium_watermelon.json').then(r=>r.json()),
-    fetch('data/hama_source_table.json').then(r=>r.json()),
-    fetch('data/crop_guidelines.json').then(r=>r.json()),
-    fetch('data/irac_target_site_map.json').then(r=>r.json()),
-    fetch('data/scan_analysis_guide.json').then(r=>r.json()),
-    fetch('data/crop_opt_sources_2026.json').then(r=>r.json()),
-    fetch('data/crop_growth_guidelines_2026.json').then(r=>r.json()),
-    fetch('data/crop_nutrition_guideline_2026.json').then(r=>r.json()),
-    fetch('data/crop_nutrition_crop_guidelines_2026.json').then(r=>r.json()),
-    fetch('data/crop_profiles_2026.json').then(r=>r.json())
-  ]);
-  state.data=moa; state.cropGrowth=cropGrowth; state.cropNutritionProfiles=cropNutritionProfiles; state.cropProfiles=cropProfiles; state.nutrition=nutrition; state.targetMap=targetMap; state.scanGuide=scanGuide; state.emerging=emerging; state.opt=opt; state.imageSources=imageSources; state.control=control; state.eppoLinks=eppoLinks; state.formulations=formulations; state.pesticideKnowledge=pesticideKnowledge; state.pesticides=pesticides; state.sources=sources; state.agroKnowledge=agroKnowledge; state.fusarium=fusarium; state.hamaSource=hamaSource; state.cropGuidelines=cropGuidelines; state.cropOptSources=cropOptSources;
+  if(!window.CropExpertDataService) throw new Error('CropExpertDataService belum tersedia');
+  Object.assign(state, await window.CropExpertDataService.loadAll());
   updateHomeStats(); renderPesticides(); renderTypes(); renderPests(); renderDiseases(); renderWeeds(); renderCrops(); renderFormulations(); renderNutrition(); renderCropGuidelines(); renderKnowledge(); renderSources(); renderLibrary(); render();
 }
 function normalizeText(s){return String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase()}
@@ -86,11 +64,58 @@ function render(){
 function renderTargetSite(){
   $('#exploreTitle').textContent='Target Site'; $('#exploreSub').textContent='Cara mudah memahami target biologis insektisida'; $('#activeCommittee').textContent='IRAC · Target Site'; $('#groupFilters').innerHTML='';
   const cats=state.targetMap?.categories||[]; const active=cats.find(c=>c.id===state.targetCategory)||cats[0]; $('#resultCount').textContent=cats.length;
-  const insectSvg=`<svg class="target-insect-svg" viewBox="0 0 240 300" role="img" aria-label="Ilustrasi serangga dan target biologis"><defs><linearGradient id="tg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b7b4b"/><stop offset="1" stop-color="#35ad76"/></linearGradient></defs><ellipse cx="120" cy="150" rx="48" ry="92" fill="url(#tg)"/><circle cx="120" cy="56" r="31" fill="#145c40"/><ellipse cx="78" cy="126" rx="45" ry="72" fill="#dff3e8"/><ellipse cx="162" cy="126" rx="45" ry="72" fill="#dff3e8"/><circle cx="110" cy="53" r="4" fill="#fff"/><circle cx="130" cy="53" r="4" fill="#fff"/><path d="M95 36 Q65 12 52 28 M145 36 Q175 12 188 28" fill="none" stroke="#145c40" stroke-width="4" stroke-linecap="round"/><path d="M86 148 Q52 142 33 124 M86 170 Q48 180 29 201 M154 148 Q188 142 207 124 M154 170 Q192 180 211 201" fill="none" stroke="#145c40" stroke-width="5" stroke-linecap="round"/><circle cx="120" cy="104" r="13" fill="#fff" stroke="#0b7b4b" stroke-width="5"/><circle cx="120" cy="153" r="18" fill="#fff" stroke="#0b7b4b" stroke-width="5"/><circle cx="120" cy="211" r="13" fill="#fff" stroke="#0b7b4b" stroke-width="5"/><text x="120" y="109" text-anchor="middle" font-size="10" font-weight="800" fill="#087443">N</text><text x="120" y="158" text-anchor="middle" font-size="10" font-weight="800" fill="#087443">E</text><text x="120" y="216" text-anchor="middle" font-size="10" font-weight="800" fill="#087443">G</text></svg>`;
+  const insectSvg=`<svg class="target-insect-svg" viewBox="0 0 520 330" role="img" aria-label="Ilustrasi larva serangga dengan integument, spirakel, mouthparts, sistem saraf pusat, usus tengah dan hemolimfa"><defs><linearGradient id="larvaSkin" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d7e8a5"/><stop offset="1" stop-color="#91b85f"/></linearGradient><filter id="soft" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-opacity=".12"/></filter></defs><g filter="url(#soft)"><path d="M55 170 C62 118 105 88 160 94 C218 101 250 123 300 124 C352 124 405 103 446 121 C480 136 490 178 468 206 C442 238 389 238 341 218 C294 198 249 196 203 211 C143 230 86 221 61 197 C51 188 50 178 55 170Z" fill="url(#larvaSkin)" stroke="#56733b" stroke-width="4"/><path d="M95 111 Q80 77 61 69 M110 106 Q101 70 91 57" fill="none" stroke="#56733b" stroke-width="5" stroke-linecap="round"/><path d="M56 168 Q28 158 19 139 M57 183 Q28 189 19 207" fill="none" stroke="#56733b" stroke-width="5" stroke-linecap="round"/><circle cx="79" cy="165" r="8" fill="#dbe8ee" stroke="#355a68" stroke-width="3"/><circle cx="101" cy="151" r="7" fill="#dbe8ee" stroke="#355a68" stroke-width="3"/><path d="M112 155 Q83 164 66 177" fill="none" stroke="#7b4aa6" stroke-width="7" stroke-linecap="round"/><path d="M120 162 C170 133 205 194 249 159 S330 136 374 170 S426 193 455 157" fill="none" stroke="#b48a2b" stroke-width="7" stroke-linecap="round"/><path d="M118 177 C166 157 201 211 248 177 S331 156 374 186 S426 211 451 178" fill="none" stroke="#0b6fa4" stroke-width="9" stroke-linecap="round" opacity=".95"/><circle cx="129" cy="169" r="6" fill="#7b4aa6"/><circle cx="239" cy="178" r="6" fill="#7b4aa6"/><circle cx="353" cy="183" r="6" fill="#7b4aa6"/><circle cx="147" cy="151" r="5" fill="#b48a2b"/><circle cx="290" cy="157" r="5" fill="#b48a2b"/><circle cx="405" cy="170" r="5" fill="#b48a2b"/></g><g font-family="Arial,sans-serif" font-size="13" font-weight="800"><path d="M180 98 L180 42 L105 42" stroke="#56733b" stroke-width="2" fill="none"/><text x="10" y="39" fill="#3f5e2e">INTEGUMENT / CUTICLE</text><path d="M75 165 L75 255 L14 255" stroke="#355a68" stroke-width="2" fill="none"/><text x="12" y="275" fill="#355a68">SPIRAKEL</text><path d="M57 178 L57 310 L8 310" stroke="#56733b" stroke-width="2" fill="none"/><text x="8" y="326" fill="#56733b">MOUTHPARTS</text><path d="M250 178 L250 52 L306 52" stroke="#0b6fa4" stroke-width="2" fill="none"/><text x="311" y="49" fill="#0b6fa4">CNS / SARAF</text><path d="M350 170 L350 88 L423 88" stroke="#b48a2b" stroke-width="2" fill="none"/><text x="427" y="84" fill="#8b681c">STOMACH / MIDGUT</text><path d="M355 190 L405 276 L472 276" stroke="#7b4aa6" stroke-width="2" fill="none"/><text x="414" y="299" fill="#704093">HEMOLYMPH</text></g></svg>`;
   const cards=cats.map(c=>`<button class="target-cat ${c.id===active.id?'active':''}" data-target-cat="${esc(c.id)}"><span class="target-cat-icon">${esc(c.icon||'◉')}</span><span><b>${esc(c.name_id)}</b><small>${esc(c.speed)}</small></span><i>›</i></button>`).join('');
   $('#cards').innerHTML=`<div class="target-map-intro"><div><span class="eyebrow">IRAC · TARGET-SITE TAXONOMY</span><h2>Dari target biologis → efek pada OPT</h2><p>Warna kategori membantu memahami bagian/fungsi biologis yang dipengaruhi. Untuk rotasi resistensi, tetap gunakan nomor kelompok MoA.</p></div></div><div class="target-visual"><div class="target-visual-art">${insectSvg}<span class="target-label label-head">Saraf & otot</span><span class="target-label label-mid">Usus tengah</span><span class="target-label label-body">Pertumbuhan</span><span class="target-label label-power">Respirasi</span></div><div class="target-detail"><div class="target-detail-badge">${esc(active.icon||'◉')} ${esc(active.name_id)}</div><h3>${esc(active.short)}</h3><div class="target-analogy"><b>Gampangnya:</b> ${esc(active.analogy)}</div><div class="target-effect"><b>Efek yang biasanya terlihat:</b><p>${esc(active.effect)}</p></div><div class="target-groups"><b>Kelompok MoA:</b><div>${(active.groups||[]).map(g=>`<span>${esc(g)}</span>`).join('')}</div></div></div></div><div class="target-cats">${cards}</div><div class="target-footer-note"><b>Catatan penting:</b> kategori fisiologis ini adalah alat bantu memahami target, bukan dasar rotasi. IRAC menyatakan manajemen resistensi harus didasarkan pada nomor kelompok MoA.</div>`;
   $$('.target-cat').forEach(b=>b.addEventListener('click',()=>{state.targetCategory=b.dataset.targetCat;renderTargetSite()}));
 }
+function renderPesticideMoa(){
+  const root=$('#moaGuideContent'); if(!root||!state.pesticideMoaGuide)return;
+  const mode=root.dataset.mode||'insecticide'; const d=state.pesticideMoaGuide[mode];
+  const escA=v=>esc(v);
+  if(!d || !Array.isArray(d.targets) || !d.targets.length){
+    root.innerHTML=`<div class="moa-guide-section"><div class="empty"><strong>Data Cara Kerja ${escA(mode)}</strong><p>Data modul belum tersedia. Aplikasi tetap berjalan; periksa file data/pesticide_mode_of_action_2026.json pada deployment.</p></div></div>`;
+    return;
+  }
+  let html=`<div class="moa-guide-section"><div class="moa-guide-title"><span class="eyebrow">${escA(d.title)}</span><h2>${escA(d.subtitle)}</h2></div>`;
+  if(mode==='insecticide'){
+    const targets=d.targets||[]; const active=targets.find(x=>x.id===root.dataset.target)||targets[0];
+    const entry=d.entry||[];
+    html+=`<div class="moa-target-site-grid">${targets.map(t=>`<button class="${t.id===active.id?'active':''}" data-target="${escA(t.id)}"><b>${escA(t.label)}</b><small>${escA(t.short)}</small></button>`).join('')}</div><div class="insect-guide-grid"><div class="insect-diagram-card"><div class="diagram-head"><strong>Peta tubuh & jalur masuk</strong><small>Target site membantu memahami fungsi biologis yang dipengaruhi</small></div><div class="caterpillar-map">${insectSvgGuide(active.id)}</div><div class="diagram-legend"><span><i class="dot cuticle"></i>Kutikula</span><span><i class="dot nerve"></i>Saraf</span><span><i class="dot gut"></i>Midgut</span><span><i class="dot blood"></i>Hemolimfa</span></div></div><div class="moa-target-panel"><div class="target-pill" style="--target:${active.color}">${escA(active.label)}</div><h3>${escA(active.short)}</h3><p>${escA(active.description)}</p><div class="moa-info-box"><b>Target molekuler / proses</b><span>${escA(active.target||active.examples)}</span></div><div class="moa-info-box"><b>Kelompok IRAC terkait</b><div class="moa-tag-list">${(active.groups||[]).map(g=>`<span>${escA(g)}</span>`).join('')}</div></div><div class="moa-info-box"><b>Contoh bahan aktif</b><div class="moa-active-list">${(active.actives||[]).map(a=>`<span>${escA(a)}</span>`).join('')}</div></div></div></div>`;
+    const activeEntry=entry.find(e=>e.id===root.dataset.entry)||entry[0];
+    html+=`<h3 class="moa-guide-subhead">Jalan masuk & perpindahan</h3><div class="entry-grid">${entry.map(e=>`<button class="entry-card ${e.id===activeEntry.id?'active':''}" data-entry="${escA(e.id)}"><span>${e.id==='contact'?'🖐️':e.id==='stomach'?'🍽️':e.id==='spiracle'?'💨':'🌿'}</span><div><b>${escA(e.title)}</b><p>${escA(e.body)}</p></div><i>›</i></button>`).join('')}</div>
+    <div class="entry-detail">
+      <div class="entry-detail-icon">${activeEntry.id==='contact'?'🖐️':activeEntry.id==='stomach'?'🍽️':activeEntry.id==='spiracle'?'💨':'🌿'}</div>
+      <div>
+        <span class="eyebrow">MODE OF ENTRY / DELIVERY</span>
+        <h3>${escA(activeEntry.title)}</h3>
+        <p>${escA(activeEntry.body)}</p>
+        <div class="entry-examples">
+          <b>🧪 Contoh bahan aktif / agen</b>
+          <div>${(activeEntry.examples||[]).map(x=>`<span>${escA(x)}</span>`).join('')}</div>
+        </div>
+      </div>
+    </div>`;
+    html+=`<h3 class="moa-guide-subhead">Contoh target saraf yang sering dijumpai</h3><div class="neural-grid">${d.neural.map(n=>`<article><b>${escA(n.title)}</b><p>${escA(n.body)}</p><small>${escA(n.groups)}</small></article>`).join('')}</div>`;
+    html+=`<div class="moa-guide-note"><b>Ingat:</b> "kontak", "ingesti", "sistemik" dan "translaminar" menjelaskan <i>delivery/mode of entry</i>; sedangkan IRAC group menjelaskan klasifikasi <i>Mode of Action</i>. Keduanya jangan disamakan.</div>`;
+  } else {
+    const targets=d.targets||[]; const active=targets.find(x=>x.id===root.dataset.target)||targets[0];
+    html+=`<div class="cell-map-grid"><div class="cell-diagram-card"><div class="diagram-head"><strong>${mode==='fungicide'?'Sel jamur':'Sel tanaman / jaringan gulma'}</strong><small>Pilih bagian biologis untuk melihat target</small></div><div class="cell-diagram ${mode}">${mode==='fungicide'?fungusCellSvg(active.id):plantCellSvg(active.id)}</div></div><div class="moa-target-panel"><div class="target-pill">${escA(active.label)}</div><h3>${escA(active.short)}</h3><p>${escA(active.description)}</p><div class="moa-info-box"><b>Contoh target</b><span>${escA(active.examples)}</span></div><div class="moa-info-box"><b>Klasifikasi</b><span>${escA(active.frac||active.hrac||'Lihat master klasifikasi current di MoA Explorer')}</span></div></div></div>`;
+    html+=`<h3 class="moa-guide-subhead">Target utama</h3><div class="target-grid">${targets.map(t=>`<button class="target-card ${t.id===active.id?'active':''}" data-target="${escA(t.id)}"><span class="target-mini-icon">${mode==='fungicide'?'🍄':'🌿'}</span><div><b>${escA(t.label)}</b><small>${escA(t.short)}</small></div><i>›</i></button>`).join('')}</div>`;
+    if(d.principles?.length)html+=`<div class="moa-guide-note"><b>Prinsip:</b><ul>${d.principles.map(x=>`<li>${escA(x)}</li>`).join('')}</ul></div>`;
+  }
+  html+='</div>'; root.innerHTML=html;
+  $$('.moa-guide-tabs button').forEach(b=>b.classList.toggle('active',b.dataset.guide===mode));
+  $$('.moa-guide-tabs button').forEach(b=>b.onclick=()=>{root.dataset.mode=b.dataset.guide;delete root.dataset.target;delete root.dataset.entry;renderPesticideMoa()});
+  $$('.target-card,.moa-target-site-grid button').forEach(b=>b.onclick=()=>{root.dataset.target=b.dataset.target;renderPesticideMoa()});
+  $$('.entry-card').forEach(b=>b.onclick=()=>{root.dataset.entry=b.dataset.entry;renderPesticideMoa()});
+}
+function insectSvgGuide(active){
+  return '<img src="assets/ui/lepidoptera-target-sites.webp" class="guide-svg guide-image" alt="Target site dan jalur kerja insektisida pada Lepidoptera" loading="lazy">';
+}
+function fungusCellSvg(active){return `<svg viewBox="0 0 500 300" class="guide-svg" role="img" aria-label="Diagram sel jamur dengan membran, mitokondria, nukleus dan dinding sel"><rect x="55" y="45" width="390" height="210" rx="72" fill="#f1eadf" stroke="#8b5a3c" stroke-width="7"/><rect x="72" y="62" width="356" height="176" rx="58" fill="#fff8ef" stroke="#d6a779" stroke-width="4"/><ellipse cx="245" cy="153" rx="62" ry="45" fill="#ead8ee" stroke="#7b4aa6" stroke-width="4"/><circle cx="245" cy="153" r="18" fill="#b48a2b"/><ellipse cx="142" cy="115" rx="32" ry="20" fill="#d7e8ef" stroke="#0b6fa4" stroke-width="4"/><ellipse cx="349" cy="194" rx="34" ry="22" fill="#d7e8ef" stroke="#0b6fa4" stroke-width="4"/><path d="M145 105 q15 10 0 20 M135 110 q15 10 0 20 M351 183 q15 10 0 20 M341 188 q15 10 0 20" fill="none" stroke="#0b6fa4" stroke-width="3"/><text x="95" y="34" font-size="14" font-weight="800" fill="#8b5a3c">DINDING SEL</text><text x="360" y="88" font-size="13" font-weight="800" fill="#8b5a3c">MEMBRAN</text><text x="212" y="215" font-size="13" font-weight="800" fill="#704093">NUKLEUS</text><text x="105" y="155" font-size="12" font-weight="800" fill="#0b6fa4">MITOKONDRIA</text><circle cx="245" cy="153" r="${active==='division'?58:10}" fill="none" stroke="${active==='division'?'#b48a2b':'transparent'}" stroke-width="5" stroke-dasharray="7 5"/></svg>`}
+function plantCellSvg(active){return `<svg viewBox="0 0 500 300" class="guide-svg" role="img" aria-label="Diagram sel tanaman dengan kloroplas, mitokondria, vakuola dan nukleus"><rect x="45" y="35" width="410" height="230" rx="32" fill="#d8efbd" stroke="#3f7c38" stroke-width="7"/><rect x="58" y="48" width="384" height="204" rx="25" fill="#eef8dc" stroke="#b7d88e" stroke-width="4"/><ellipse cx="248" cy="150" rx="82" ry="62" fill="#dcecf4" stroke="#7b4aa6" stroke-width="4"/><ellipse cx="125" cy="105" rx="38" ry="23" fill="#bfe1a4" stroke="#2f8f5b" stroke-width="4"/><ellipse cx="367" cy="190" rx="38" ry="23" fill="#bfe1a4" stroke="#2f8f5b" stroke-width="4"/><ellipse cx="355" cy="96" rx="34" ry="20" fill="#d7e8ef" stroke="#0b6fa4" stroke-width="4"/><text x="80" y="28" font-size="14" font-weight="800" fill="#3f7c38">DINDING SEL</text><text x="363" y="52" font-size="13" font-weight="800" fill="#2f8f5b">KLOROPLAS</text><text x="332" y="230" font-size="13" font-weight="800" fill="#0b6fa4">MITOKONDRIA</text><text x="215" y="155" font-size="13" font-weight="800" fill="#704093">NUKLEUS</text><circle cx="125" cy="105" r="${active==='photosynthesis'||active==='pigment'?31:8}" fill="none" stroke="${active==='photosynthesis'||active==='pigment'?'#2f8f5b':'transparent'}" stroke-width="5" stroke-dasharray="7 5"/></svg>`}
+
 function renderEmerging(){
   $('#exploreTitle').textContent='Emerging';
   $('#exploreSub').textContent='Bahan aktif baru · pipeline · pra-klasifikasi';
@@ -209,43 +234,63 @@ function photoBlock(x){
   if(!imgs.length) return '';
   return `<section class="media-gallery"><div class="media-gallery-head"><div><span class="eyebrow">VISUAL REFERENSI</span><h3>Foto & ilustrasi OPT</h3></div><span>${imgs.length} aset</span></div><div class="media-gallery-grid">${imgs.map((img,i)=>{
     const src=img.local_path || img.remote_url;
-    const label=img.image_type==='lifecycle'?'Siklus hidup':img.image_type==='species_reference'?'Tabel spesies / inang':img.image_type==='organism'?'Foto organisme':'Referensi visual';
+    const label=img.stage==='imago'?'Foto imago':img.stage==='larva'?'Foto larva':img.stage==='gejala'?'Foto gejala':img.image_type==='lifecycle'?'Siklus hidup':img.image_type==='species_reference'?'Tabel spesies / inang':img.image_type==='organism'?'Foto organisme':img.image_type==='symptom_reference'?'Foto gejala':img.image_type==='ai_illustration'?'Ilustrasi AI':'Referensi visual';
     const link=img.source_url?`<a href="${esc(img.source_url)}" target="_blank" rel="noopener">Sumber ↗</a>`:'';
     return `<article class="media-card"><div class="media-image"><img src="${esc(src)}" alt="${esc(label)} ${esc(x.name)}" loading="lazy" onerror="this.closest('.media-card').classList.add('media-error')"><div class="media-fallback"><img src="assets/opt/${esc(x.icon)}" alt=""><span>Visual tidak tersedia offline</span></div></div><div class="media-caption"><strong>${esc(label)}</strong><small>${esc(img.notes||img.attribution||'Referensi visual')}</small>${link}</div></article>`;
   }).join('')}</div></section>`;
 }
 function photoThumb(x){
-  const img=(x.images||[])[0];
+  const imgs=(x.images||[]).filter(img=>img && (img.local_path||img.remote_url));
+  const img=imgs.find(img=>img.stage==='larva') || imgs[0];
   if(!img) return `<img src="assets/opt/${esc(x.icon)}" alt="">`;
   const src=img.local_path || img.remote_url;
-  return `<div class="thumb-photo"><img src="${esc(src)}" alt="" loading="lazy" onerror="this.parentElement.classList.add('photo-error')"><div class="thumb-fallback"><img src="assets/opt/${esc(x.icon)}" alt=""></div></div>`;
+  return `<div class="thumb-photo"><img src="${esc(src)}" alt="${esc(img.stage==='larva'?'Foto larva':x.name)}" loading="lazy" onerror="this.parentElement.classList.add('photo-error')"><div class="thumb-fallback"><img src="assets/opt/${esc(x.icon)}" alt=""></div></div>`;
 }
 
 function renderTypes(){
   const type=state.type;
   const source=type==='Hama'?state.opt.categories: type==='Penyakit'?state.opt.diseases:state.opt.weeds;
   if(type==='Hama'){
-    $('#typeGrid').innerHTML=source.map(x=>`<button class="type-card" data-cat="${esc(x.name)}"><img src="assets/opt/${esc(x.icon)}"><strong>${esc(x.name)}</strong><small>${esc(x.label)}</small><i>›</i></button>`).join('');
-    $$('.type-card').forEach(b=>b.addEventListener('click',()=>{state.pestFilter=b.dataset.cat;showScreen('pests');renderPests()}));
+    state.pestFilter='Semua';
+    return;
   }else{
     $('#typeGrid').innerHTML=source.map(x=>`<button class="type-card" data-go-list="${esc(x.id)}"><img src="assets/opt/${esc(x.icon)}"><strong>${esc(x.name)}</strong><small>${esc(x.common)}</small><i>›</i></button>`).join('');
-    $$('.type-card').forEach(b=>b.addEventListener('click',()=>openOptDetail(source.find(x=>x.id===b.dataset.goList),type)));
+    $$( '.type-card').forEach(b=>b.addEventListener('click',()=>openOptDetail(source.find(x=>x.id===b.dataset.goList),type)));
+    $$(".type-card").forEach(b=>b.addEventListener("click",()=>openOptDetail(source.find(x=>x.id===b.dataset.goList),type)));
   }
 }
+function renderPestTabs(){
+  const el=$('#pestTabs');
+  if(!el) return;
+  const preferred=(state.opt.categories||[]).map(x=>x.name).filter(Boolean);
+  const existing=new Set((state.opt.pests||[]).map(x=>x.category).filter(Boolean));
+  const cats=[...preferred.filter(x=>existing.has(x)),...Array.from(existing).filter(x=>!preferred.includes(x)).sort()];
+  el.innerHTML=[`<button class="active" data-pest-filter="Semua">Semua <span>${state.opt.pests.length}</span></button>`,...cats.map(c=>`<button data-pest-filter="${esc(c)}">${esc(c)} <span>${state.opt.pests.filter(x=>x.category===c).length}</span></button>`)].join('');
+  $$('#pestTabs button').forEach(b=>b.addEventListener('click',()=>{state.pestFilter=b.dataset.pestFilter;renderPests();}));
+}
 function renderPests(){
+  renderPestTabs();
   let list=state.opt.pests;
   if(state.pestFilter && state.pestFilter!=='Semua' && state.pestFilter!=='Hama') list=list.filter(x=>x.category===state.pestFilter);
-  $('#pestList').innerHTML=list.map((x,i)=>`<button class="opt-card" data-id="${esc(x.id)}">${photoThumb(x)}<div class="opt-main"><h3>${esc(x.name)}</h3><p>${esc(x.common)}</p><small>${esc(x.category)} · ${esc(x.family)}</small></div><span class="arrow">›</span></button>`).join('');
+  $('#pestList').innerHTML=list.map((x,i)=>`<button class="opt-card" data-id="${esc(x.id)}">${photoThumb(x)}<div class="opt-main"><h3>${esc(x.name)}</h3><p>${esc(x.common)}</p><small><b>Jenis hama:</b> ${esc(x.category||'Lainnya')}${x.family?` · ${esc(x.family)}`:''}</small></div><span class="arrow">›</span></button>`).join('');
   $$('#pestList .opt-card').forEach(b=>b.addEventListener('click',()=>openOptDetail(state.opt.pests.find(x=>x.id===b.dataset.id),'Hama')));
-  $$('.pest-tabs button').forEach(b=>b.classList.toggle('active',b.dataset.pestFilter===state.pestFilter));
+  $$('#pestTabs button').forEach(b=>b.classList.toggle('active',b.dataset.pestFilter===state.pestFilter));
 }
 function renderDiseases(){
-  $('#diseaseList').innerHTML=state.opt.diseases.map(x=>`<button class="opt-card" data-id="${esc(x.id)}">${photoThumb(x)}<div class="opt-main"><h3>${esc(x.name)}</h3><p>${esc(x.common)}</p><small>${esc(x.category)}</small></div><span class="arrow">›</span></button>`).join('');
-  $$('#diseaseList .opt-card').forEach(b=>b.addEventListener('click',()=>openOptDetail(state.opt.diseases.find(x=>x.id===b.dataset.id),'Penyakit')));
+  const filter=state.diseaseFilter||'Semua';
+  let list=state.opt.diseases;
+  if(filter!=='Semua') list=list.filter(x=>String(x.category||'').toLowerCase()===filter.toLowerCase());
+  $('#diseaseList').innerHTML=list.map(x=>`<button class="opt-card" data-id="${esc(x.id)}">${photoThumb(x)}<div class="opt-main"><h3>${esc(x.name)}</h3><p>${esc(x.common)}</p><small>${esc(x.category)}${x.classification_group?` · ${esc(x.classification_group)}`:''}</small></div><span class="arrow">›</span></button>`).join('');
+  $$( '#diseaseList .opt-card').forEach(b=>b.addEventListener('click',()=>openOptDetail(state.opt.diseases.find(x=>x.id===b.dataset.id),'Penyakit')));
+  $$( '#diseaseTabs button').forEach(b=>b.classList.toggle('active',b.dataset.diseaseFilter===filter));
 }
 function renderWeeds(){
-  $('#weedList').innerHTML=state.opt.weeds.map(x=>`<button class="opt-card" data-id="${esc(x.id)}">${photoThumb(x)}<div class="opt-main"><h3>${esc(x.name)}</h3><p>${esc(x.common)}</p><small>${esc(x.category)}</small></div><span class="arrow">›</span></button>`).join('');
-  $$('#weedList .opt-card').forEach(b=>b.addEventListener('click',()=>openOptDetail(state.opt.weeds.find(x=>x.id===b.dataset.id),'Gulma')));
+  const filter=state.weedFilter||'Semua';
+  let list=state.opt.weeds;
+  if(filter!=='Semua') list=list.filter(x=>String(x.category||'').toLowerCase()===filter.toLowerCase());
+  $('#weedList').innerHTML=list.map(x=>`<button class="opt-card" data-id="${esc(x.id)}">${photoThumb(x)}<div class="opt-main"><h3>${esc(x.name)}</h3><p>${esc(x.common)}</p><small>${esc(x.category)}${x.classification_group?` · ${esc(x.classification_group)}`:''}</small></div><span class="arrow">›</span></button>`).join('');
+  $$( '#weedList .opt-card').forEach(b=>b.addEventListener('click',()=>openOptDetail(state.opt.weeds.find(x=>x.id===b.dataset.id),'Gulma')));
+  $$( '#weedTabs button').forEach(b=>b.classList.toggle('active',b.dataset.weedFilter===filter));
 }
 function renderCrops(){
   $('#cropGrid').innerHTML=state.opt.crops.map(x=>`<button class="crop-card" data-id="${esc(x.id)}"><img src="assets/opt/${esc(x.icon)}"><strong>${esc(x.name)}</strong><small>${esc(x.latin)}</small></button>`).join('');
@@ -345,6 +390,16 @@ function integratedNutrient(cropId,key){
   if(!master)return null;
   return {...master, key, cropSpecific:(profile?.nutrition_keys||[]).includes(key)};
 }
+function featuredPestsForCrop(cropId){
+  const ids=state.featuredPests?.records?.[cropId]||[];
+  const pool=state.opt?.pests||[];
+  return ids.map(id=>pool.find(x=>x.id===id)).filter(Boolean);
+}
+function featuredPestsBlock(crop){
+  const list=featuredPestsForCrop(crop.id);
+  if(!list.length) return '';
+  return `<section class="featured-pests-section"><div class="growth-head"><div><span class="eyebrow">FOTO REFERENSI</span><h3>Hama utama</h3></div><span class="growth-status">KURASI</span></div><p class="source-note">Foto ditampilkan sebagai referensi visual. Daftar ini bukan ranking universal dan bukan penetapan ambang kendali.</p><div class="featured-pest-grid">${list.map(x=>`<button class="featured-pest-card" data-featured-opt="${esc(x.id)}"><div class="featured-pest-image">${photoThumb(x)}</div><strong><i>${esc(x.name)}</i></strong><span>${esc(x.common||'')}</span></button>`).join('')}</div></section>`;
+}
 function cropNutritionProfileForCrop(cropId){ return (state.cropNutritionProfiles?.records||[]).find(r=>r.crop_id===cropId); }
 function nutritionFocusTags(ids){
   return (ids||[]).map(id=>`<button class="nutrient-mini" data-nutrient-id="${esc(id)}">${esc(id)}</button>`).join('');
@@ -376,7 +431,7 @@ function renderCropGuidelines(){
   const root=$('#cropGuidelineList'); if(!root||!state.opt||!state.cropNutritionProfiles)return;
   const q=normalizeText($('#cropGuidelineSearch')?.value||'');
   const rows=(state.cropNutritionProfiles.records||[]).map(r=>{const c=state.opt.crops.find(x=>x.id===r.crop_id);return {...r,crop:c};}).filter(r=>r.crop && (!q||normalizeText([r.crop.name,r.crop.latin,r.family,r.production_goal,r.nutrition_focus.join(' ')].join(' ')).includes(q)));
-  root.innerHTML=rows.map(r=>`<button class="crop-guideline-card" data-crop-guideline="${esc(r.crop_id)}"><img src="assets/opt/${esc(r.crop.icon)}"><div><span class="eyebrow">${esc(r.family)}</span><h3>${esc(r.crop.name)}</h3><p>${esc(r.production_goal)}</p><div class="nutrient-focus-tags">${nutritionFocusTags(r.nutrition_focus)}</div></div><span class="arrow">›</span></button>`).join('')||'<div class="empty">Crop tidak ditemukan.</div>';
+  root.innerHTML=rows.map(r=>`<button class="crop-guideline-card" data-crop-guideline="${esc(r.crop_id)}" title="${esc(r.crop.name)}"><img src="assets/opt/${esc(r.crop.icon)}" alt="${esc(r.crop.name)}"><strong>${esc(r.crop.name)}</strong></button>`).join('')||'<div class="empty">Crop tidak ditemukan.</div>';
   $$('.crop-guideline-card').forEach(b=>b.addEventListener('click',()=>{const c=state.opt.crops.find(x=>x.id===b.dataset.cropGuideline);if(c)openCropDetail(c);}));
 }
 
@@ -387,7 +442,7 @@ function renderNutrition(){
   const cards=[];
   (state.nutrition.categories||[]).forEach(cat=>{
     if(f!=='ALL'&&f!==cat.id)return;
-    (cat.items||[]).forEach(x=>cards.push({type:'category',categoryId:cat.id,category:cat.name,...x}));
+    (cat.items||[]).forEach(x=>{const master=state.cropProfiles?.nutrition_master?.[x.id];cards.push({type:'nutrient',categoryId:cat.id,category:cat.name,...x,sources:x.sources||master?.sources||[]});});
   });
   if(f==='ALL'||f==='biostimulants') (state.nutrition.biostimulants||[]).forEach(x=>cards.push({type:'biostimulant',categoryId:'biostimulants',category:'Biostimulan',...x}));
   if(f==='ALL'||f==='growth_regulators') (state.nutrition.growth_regulators||[]).forEach(x=>cards.push({type:'pgr',categoryId:'growth_regulators',category:'Plant Growth Regulator (PGR)',...x}));
@@ -395,7 +450,7 @@ function renderNutrition(){
   $('#nutritionSearchBtn')?.setAttribute('aria-label','Cari nutrisi');
   root.innerHTML=filtered.length?filtered.map(x=>{
     const badge=x.type==='category'?(x.group||x.category):(x.category||'');
-    return `<article class="nutrition-card"><div class="nutrition-card-head"><div><span class="eyebrow">${esc(x.category||'')}</span><h3>${esc(x.name)}${x.symbol?` <small>${esc(x.symbol)}</small>`:''}</h3></div><span class="nutrition-badge">${esc(badge)}</span></div>${x.what?`<p class="nutrition-what">${esc(x.what)}</p>`:''}${x.forms?.length?`<div class="nutrition-forms"><b>Bentuk umum:</b> ${x.forms.map(v=>esc(v)).join(' · ')}</div>`:''}${x.examples?.length?`<div class="tag-row">${x.examples.map(v=>`<span>${esc(v)}</span>`).join('')}</div>`:''}${x.mobility?`<div class="nutrition-meta"><span>Mobilitas: ${esc(x.mobility)}</span></div>`:''}<div class="nutrition-role"><b>Peran pada tanaman</b><ul>${(x.role||[]).map(v=>`<li>${esc(v)}</li>`).join('')}</ul></div>${x.diagnostic_clue?`<div class="nutrition-diagnostic"><b>Petunjuk gejala:</b> ${esc(x.diagnostic_clue)}</div>`:''}${x.note?`<p class="nutrition-note">${esc(x.note)}</p>`:''}</article>`;
+    return `<article class="nutrition-card"><div class="nutrition-card-head"><div><span class="eyebrow">${esc(x.category||'')}</span><h3>${esc(x.name)}${x.symbol?` <small>${esc(x.symbol)}</small>`:''}</h3></div><span class="nutrition-badge">${esc(badge)}</span></div>${x.what?`<p class="nutrition-what">${esc(x.what)}</p>`:''}${x.forms?.length?`<div class="nutrition-forms"><b>Bentuk yang umum:</b> ${x.forms.map(v=>esc(v)).join(' · ')}</div>`:''}${x.sources?.length?`<div class="nutrition-forms fertilizer-sources"><b>Contoh pupuk / sumber hara:</b> ${x.sources.map(v=>esc(v)).join(' · ')}</div>`:''}${x.examples?.length?`<div class="tag-row">${x.examples.map(v=>`<span>${esc(v)}</span>`).join('')}</div>`:''}${x.mobility?`<div class="nutrition-meta"><span>Mobilitas: ${esc(x.mobility)}</span></div>`:''}<div class="nutrition-role"><b>Peran pada tanaman</b><ul>${(x.role||[]).map(v=>`<li>${esc(v)}</li>`).join('')}</ul></div>${x.diagnostic_clue?`<div class="nutrition-diagnostic"><b>Petunjuk gejala:</b> ${esc(x.diagnostic_clue)}</div>`:''}${x.note?`<p class="nutrition-note">${esc(x.note)}</p>`:''}</article>`;
   }).join(''):`<div class="empty">Tidak ada data nutrisi yang cocok dengan pencarian.</div>`;
   const fw=state.nutrition.diagnostic_framework; const interactions=state.nutrition.interaction_examples||[];
   if($('#nutritionFramework')) $('#nutritionFramework').innerHTML=`<div class="nutrition-framework-grid"><div><span class="eyebrow">DIAGNOSIS</span><h3>${esc(fw?.title||'Kerangka diagnosis nutrisi')}</h3><ol>${(fw?.steps||[]).map(v=>`<li>${esc(v)}</li>`).join('')}</ol><p class="source-note">${esc(fw?.note||'')}</p></div><div><span class="eyebrow">INTERAKSI</span><h3>Nutrient balance</h3>${interactions.map(v=>`<div class="interaction-row"><strong>${esc(v.pair)}</strong><span>${esc(v.type)}</span><small>${esc(v.note)}</small></div>`).join('')}</div></div>`;
@@ -576,11 +631,26 @@ function growthLinksForOpt(optId){
 }
 function growthBlockForCrop(crop){
   const g=growthRecordForCrop(crop.id); if(!g) return '';
+  const legacy=integratedCropProfileForCrop(crop.id);
   const phases=g.phases||[];
   const links=g.opt_stage_links||[];
-  return `<section class="growth-section"><div class="growth-head"><div><span class="eyebrow">CROP GROWTH GUIDELINE</span><h3>Tahapan Pertumbuhan</h3></div><span class="growth-status">${g.source_status==='source_supported'?'SOURCE':'KERANGKA'}</span></div>
-    <div class="growth-timeline">${phases.map((p,i)=>`<div class="growth-stage"><span>${i+1}</span><strong>${esc(p.name)}</strong>${p.label?`<small>${esc(p.label)}</small>`:''}</div>`).join('')}</div>
-    ${links.length?`<div class="growth-opt-map"><h4>OPT menurut fase</h4>${phases.map(ph=>{const ls=links.filter(l=>(l.stages||[]).includes(ph.id)); if(!ls.length)return ''; return `<div class="growth-opt-row"><div class="growth-phase"><strong>${esc(ph.name)}</strong><small>${esc(ph.group||'')}</small></div><div class="growth-opt-items">${ls.map(l=>{const ox=[...(state.opt?.pests||[]),...(state.opt?.diseases||[]),...(state.opt?.weeds||[])].find(v=>v.id===l.opt_id); return `<button class="stage-opt-link" data-opt-stage-ref="${esc(`${l.type}|${l.opt_id}`)}">${esc(l.type)} · ${esc(ox?.common||ox?.name||l.opt_id)} ›</button>`}).join('')}</div></div>`}).join('')}</div>`:''}
+  const legacyStages=legacy?.growth_stages||[];
+  const allOpt=[...(state.opt?.pests||[]),...(state.opt?.diseases||[]),...(state.opt?.weeds||[])];
+  const stageRows=phases.map((p,i)=>{
+    const ls=links.filter(l=>(l.stages||[]).includes(p.id));
+    const legacyStage=legacyStages[i]||null;
+    const hst=legacyStage?.hst||'Belum ada kisaran HST spesifik pada sumber yang digunakan.';
+    const nutrients=legacyStage?.key_nutrients||[];
+    return `<article class="growth-stage-detail">
+      <div class="growth-stage-title"><span>${i+1}</span><div><strong>${esc(p.name)}</strong><small>${esc(p.group||'')}</small></div></div>
+      <div class="growth-stage-meta"><span>⏱ ${esc(hst)}</span>${p.label?`<span>BBCH/Stage: ${esc(p.label)}</span>`:''}</div>
+      ${legacyStage?.description?`<p class="growth-stage-desc">${esc(legacyStage.description)}</p>`:''}
+      ${nutrients.length?`<div class="nutrient-focus-tags">${nutrients.map(k=>`<span class="nutrient-mini">Hara ${esc(k)}</span>`).join('')}</div>`:''}
+      <div class="stage-opt-box"><b>OPT yang terpetakan pada fase ini</b>${ls.length?`<div class="growth-opt-items">${ls.map(l=>{const ox=allOpt.find(v=>v.id===l.opt_id);return `<button class="stage-opt-link" data-opt-stage-ref="${esc(`${l.type}|${l.opt_id}`)}">${esc(l.type)} · ${esc(ox?.common||ox?.name||l.opt_id)} ›</button>`}).join('')}</div>`:`<small class="stage-opt-empty">Belum ada pemetaan fase-spesifik yang didukung sumber pada database.</small>`}</div>
+    </article>`;
+  }).join('');
+  return `<section class="growth-section"><div class="growth-head"><div><span class="eyebrow">CROP GROWTH GUIDELINE</span><h3>Fase Pertumbuhan · HST · OPT</h3></div><span class="growth-status">${g.source_status==='source_supported'?'SOURCE':'KERANGKA'}</span></div>
+    <div class="growth-detail-list">${stageRows}</div>
     ${g.note?`<div class="source-note">${esc(g.note)}</div>`:''}
     ${g.sources?.length?`<div class="growth-sources">${g.sources.map(s=>`<small>• ${esc(s.name)}${s.note?` — ${esc(s.note)}`:''}</small>`).join('')}</div>`:''}
   </section>`;
@@ -593,10 +663,11 @@ function growthBlockForOpt(x){
   </section>`;
 }
 function lifeCycleBlock(x){
-  const ref=x.life_cycle_reference;
-  if(!ref) return '';
-  return `<section class="lifecycle-section"><div class="growth-head"><div><span class="eyebrow">BIOLOGI OPT</span><h3>Siklus hidup</h3></div><span class="growth-status">REFERENSI</span></div>
-    <div class="lifecycle-stages">${(ref.stages||[]).map((v,i)=>`<div class="lifecycle-stage"><span>${i+1}</span><strong>${esc(v)}</strong>${i<(ref.stages||[]).length-1?'<b>→</b>':''}</div>`).join('')}</div>
+  const ref=x.life_cycle_reference || {stages:x.life||[]};
+  const stages=ref.stages||[];
+  if(!stages.length) return '';
+  return `<section class="lifecycle-section"><div class="growth-head"><div><span class="eyebrow">BIOLOGI OPT</span><h3>Siklus hidup</h3></div><span class="growth-status">${stages.length} TAHAP</span></div>
+    <div class="lifecycle-stages">${stages.map((v,i)=>`<div class="lifecycle-stage"><span>${i+1}</span><strong>${esc(v)}</strong>${i<stages.length-1?'<b>→</b>':''}</div>`).join('')}</div>
     ${ref.source_note?`<div class="source-note">${esc(ref.source_note)}</div>`:''}
   </section>`;
 }
@@ -614,9 +685,13 @@ function openOptDetail(x,type){
     <div class="detail-code">${esc(type)} · ${esc(x.category||x.family||'')}</div>${photoBlock(x)}
     <div style="text-align:center;margin:16px 0 6px"><img src="assets/opt/${esc(x.icon)}" style="width:180px;height:150px;color:#0a7548"></div>
     <h2><i>${esc(x.name)}</i></h2><p class="muted">${esc(x.common||'')}</p>
-    <div class="detail-grid"><div><label>Nama umum</label><strong>${esc(x.common||'—')}</strong></div><div><label>Kelompok</label><strong>${esc(x.category||'—')}</strong></div>${x.family?`<div><label>Famili</label><strong>${esc(x.family)}</strong></div>`:''}<div><label>Type OPT</label><strong>${esc(type)}</strong></div></div>
+    <div class="detail-grid"><div><label>Nama umum</label><strong>${esc(x.common||'—')}</strong></div><div><label>Klasifikasi</label><strong>${esc(x.classification||x.category||'—')}</strong></div>${x.classification_group?`<div><label>Golongan teknis</label><strong>${esc(x.classification_group)}</strong></div>`:''}${x.family?`<div><label>Famili</label><strong>${esc(x.family)}</strong></div>`:''}<div><label>Type OPT</label><strong>${esc(type)}</strong></div></div>
     ${hosts.length?`<h3>Tanaman Inang</h3><div class="tag-row">${hosts.map(h=>`<span>${esc(h)}</span>`).join('')}</div>`:''}
+    ${x.description?`<h3>Deskripsi</h3><div class="source-box"><p style="margin:0;font-size:11px;line-height:1.55">${esc(x.description)}</p></div>`:''}
     ${x.symptoms?.length?`<h3>Gejala / ciri</h3><div class="source-box"><ul style="margin:0;padding-left:17px">${x.symptoms.map(s=>`<li style="font-size:10px;margin:6px 0">${esc(s)}</li>`).join('')}</ul></div>`:''}
+    ${x.diagnostic?`<div class="source-box"><b>Petunjuk identifikasi</b><p style="margin:6px 0 0;font-size:10px;line-height:1.5">${esc(x.diagnostic)}</p></div>`:''}
+    ${x.favorable_conditions?`<div class="source-box"><b>Kondisi yang mendukung</b><p style="margin:6px 0 0;font-size:10px;line-height:1.5">${esc(x.favorable_conditions)}</p></div>`:''}
+    ${x.importance?`<div class="tag-row"><span>Prioritas data: ${esc(x.importance)}</span></div>`:''}
     ${lifeCycleBlock(x)}
     ${x.life?.length?`<h3>Tahap perkembangan</h3><div class="tag-row">${x.life.map(s=>`<span>${esc(s)}</span>`).join('')}</div>`:''}
     ${sourceTableBlock(x)}
@@ -633,21 +708,23 @@ function openCropDetail(crop){
   if(state.historyReady && !state.historyLock) history.pushState({...navState(),detail:true,detailRef:state.detailRef},'',location.href);
   const master=[...state.opt.pests,...state.opt.diseases,...state.opt.weeds];
   const sourceRows=(state.cropOptSources?.records?.[crop.id]||[]);
-  const fallback=master.filter(x=>(x.hosts||[]).some(h=>h.toLowerCase().includes(crop.name.split(' ')[0].toLowerCase())||crop.name.toLowerCase().includes(h.toLowerCase()))).map(x=>({type:x.category==='Fungi'||x.category==='Bacteria'||x.category==='Fungi-like'?'Penyakit':x.category==='Grass'||x.category==='Broadleaf'||x.category==='Sedge'?'Gulma':'Hama',common:x.common||x.name,scientific:x.name,master_id:x.id,source:'master'}));
+  const fallback=master.filter(x=>(x.hosts||[]).some(h=>h.toLowerCase().includes(crop.name.split(' ')[0].toLowerCase())||crop.name.toLowerCase().includes(h.toLowerCase()))).map(x=>({type:['Jamur','Jamur Basah','Bakteri','Virus','Fungi','Fungi-like','Oomycete','Bacteria'].includes(x.category)?'Penyakit':['Rumput','Daun Sempit','Daun Lebar','Grass','Broadleaf','Sedge','Aquatic'].includes(x.category)?'Gulma':'Hama',common:x.common||x.name,scientific:x.name,master_id:x.id,source:'master'}));
   const rows=sourceRows.length?sourceRows:fallback;
   const sections=['Hama','Penyakit','Gulma'].map(type=>{const list=rows.filter(x=>x.type===type); if(!list.length)return ''; return `<div class="crop-opt-section"><div class="crop-opt-section-head"><strong>${type}</strong><span>${list.length}</span></div><div class="opt-list">${list.map(x=>{const m=x.master_id?master.find(v=>v.id===x.master_id):null; const ref=`${type}|${x.master_id||''}|${x.scientific||x.common||''}|${x.common||''}`; return `<button class="opt-card crop-opt-link" data-opt-ref="${esc(ref)}"><img src="assets/opt/${esc(m?.icon|| (type==='Hama'?'category-pest.svg':type==='Penyakit'?'category-disease.svg':'category-weed.svg'))}"><div class="opt-main"><h3>${esc(x.scientific||x.common)}</h3><p>${esc(x.common||'')}</p><small>${esc(type)}${x.source&&x.source!=='master'?' · sumber tabel pengguna':''}</small></div><span class="arrow">›</span></button>`}).join('')}</div></div>`}).join('');
   $('#detail').innerHTML=`<div class="detail-backdrop" id="detailBackdrop"></div><aside class="detail-sheet">
-    <button class="close" id="closeDetail">×</button><div class="detail-code">Panduan Budidaya Tanaman</div>
+    <button class="close" id="closeDetail">×</button><div class="detail-code">Crop Guideline</div>
     <div style="text-align:center;margin:16px 0 6px"><img src="assets/opt/${esc(crop.icon)}" style="width:150px;height:130px;color:#0a7548"></div>
     <h2>${esc(crop.name)}</h2><p class="muted"><i>${esc(crop.latin)}</i></p>
     ${crop.source_guidelines?`<div class="source-box"><strong>Sumber pengetahuan</strong><p>${esc(crop.source_guidelines.summary_id)}</p><small>${esc(crop.source_guidelines.source)} · ${esc(crop.source_guidelines.source_note)}</small></div>`:''}
     <div class="crop-source-badge">${rows.length} relasi OPT dari lapisan sumber + master</div>
     ${growthBlockForCrop(crop)}
     ${nutritionBlockForCrop(crop)}
+    ${featuredPestsBlock(crop)}
     <h3>OPT terkait</h3>${sections||'<div class="empty">Belum ada relasi OPT yang terpetakan.</div>'}
     <div class="source-note">Relasi dari TABEL HAMA (ID).pdf diperlakukan sebagai sumber pengetahuan/provenance. Nama produk pada dokumen tidak dianggap sebagai bukti registrasi pestisida Indonesia saat ini.</div>
   </aside>`;
   $('#detailBackdrop').addEventListener('click',closeDetail);$('#closeDetail').addEventListener('click',closeDetail); $$('.crop-opt-link').forEach(b=>b.addEventListener('click',()=>openCropOptRef(b.dataset.optRef))); $$('.stage-opt-link').forEach(b=>b.addEventListener('click',()=>{const [t,id]=String(b.dataset.optStageRef||'').split('|'); const x=[...state.opt.pests,...state.opt.diseases,...state.opt.weeds].find(v=>v.id===id); if(x) openOptDetail(x,t);}));
+  $$('.featured-pest-card').forEach(b=>b.addEventListener('click',()=>{const x=(state.opt?.pests||[]).find(v=>v.id===b.dataset.featuredOpt); if(x) openOptDetail(x,'Hama');}));
 }
 function openCropOptRef(ref){
   const [type,id,scientific,common]=String(ref||'').split('|');
@@ -670,9 +747,9 @@ function setScanFile(file){
   if(!file || !file.type.startsWith('image/')) return; state.scanFile=file;
   const preview=$('#scanPreview'); const url=URL.createObjectURL(file); preview.style.backgroundImage=`url("${url}")`; preview.style.backgroundSize='cover'; preview.style.backgroundPosition='center';
   preview.querySelector('span').textContent='✓'; $('#scanPreviewTitle').textContent=file.name||'Foto siap dianalisis'; $('#scanPreviewHint').textContent='Foto siap. Kamu bisa lanjut ke Google Lens atau ChatGPT.';
-  $('#scanFileMeta').hidden=false; $('#scanFileMeta').textContent=`${file.name||'foto'} · ${Math.round(file.size/1024)} KB`; $('#analyzeChatGPTBtn').disabled=false; $('#copyScanPromptBtn').disabled=false; $('#googleLensBtn').disabled=false;
+  $('#scanFileMeta').hidden=false; $('#scanFileMeta').textContent=`${file.name||'foto'} · ${Math.round(file.size/1024)} KB`; $('#analyzeChatGPTBtn').disabled=false; $('#copyScanPromptBtn').disabled=false; $('#googleLensBtn').disabled=false; window.CropExpertAI?.onFileReady?.();
 }
-function buildScanPrompt(){return `Saya sedang menggunakan Crop Expert untuk identifikasi awal OPT tanaman. Analisis foto yang saya lampirkan.\n\nTugas:\n1. Identifikasi tanaman/komoditas jika dapat terlihat.\n2. Tentukan apakah foto lebih mungkin menunjukkan HAMA, PENYAKIT, GULMA, gangguan ABIOTIK, atau KERUSAKAN PESTISIDA.\n3. Berikan maksimal 3 kandidat berdasarkan kecocokan ciri visual yang terlihat; jangan mengarang kepastian.\n4. Untuk setiap kandidat tuliskan nama umum Indonesia, nama ilmiah bila dapat ditentukan, dan ciri foto yang mendukung.\n5. Jelaskan ciri yang membedakannya dari kandidat lain.\n6. Jika foto tidak cukup, minta foto tambahan yang spesifik.\n7. Beri tingkat keyakinan kualitatif: tinggi/sedang/rendah, bukan angka probabilitas.\n8. Jangan menyatakan diagnosis pasti hanya dari foto. Untuk penyakit, pertimbangkan bahwa konfirmasi profesional/laboratorium mungkin diperlukan.\n9. Jangan memberikan dosis pestisida atau campuran tangki otomatis dari hasil foto.\n\nJawab dalam Bahasa Indonesia dan gunakan nama ilmiah/istilah teknis aslinya bila relevan.`}
+function buildScanPrompt(){return `Saya sedang menggunakan Crop Expert untuk identifikasi awal OPT tanaman. Analisis foto yang saya lampirkan.  Tugas: 1. Identifikasi tanaman/komoditas jika dapat terlihat. 2. Tentukan apakah foto lebih mungkin menunjukkan HAMA, PENYAKIT, GULMA, gangguan ABIOTIK, atau KERUSAKAN PESTISIDA. 3. Berikan maksimal 3 kandidat berdasarkan kecocokan ciri visual yang terlihat; jangan mengarang kepastian. 4. Untuk setiap kandidat tuliskan nama umum Indonesia, nama ilmiah bila dapat ditentukan, dan ciri foto yang mendukung. 5. Jelaskan ciri yang membedakannya dari kandidat lain. 6. Jika foto tidak cukup, minta foto tambahan yang spesifik. 7. Beri tingkat keyakinan kualitatif: tinggi/sedang/rendah, bukan angka probabilitas. 8. Jangan menyatakan diagnosis pasti hanya dari foto. Untuk penyakit, pertimbangkan bahwa konfirmasi profesional/laboratorium mungkin diperlukan. 9. Jangan memberikan dosis pestisida atau campuran tangki otomatis dari hasil foto.  Jawab dalam Bahasa Indonesia dan gunakan nama ilmiah/istilah teknis aslinya bila relevan.`}
 function openGoogleLens(){
   if(!state.scanFile)return;
   window.open('https://lens.google.com/','_blank','noopener');
@@ -697,12 +774,179 @@ async function shareScanToChatGPT(){
   window.open('https://chatgpt.com/','_blank','noopener'); alert('Browser ini tidak mendukung berbagi file langsung. ChatGPT sudah dibuka. Tempel foto secara manual lalu kirim prompt yang sudah disalin jika tersedia.');
 }
 async function copyScanPrompt(){try{await navigator.clipboard.writeText(buildScanPrompt());alert('Prompt analisis sudah disalin.')}catch(e){alert(buildScanPrompt())}}
+
+const stewardshipItems = {
+  sasaran: {
+    icon:'🎯',
+    title:'Tepat Sasaran',
+    text:'Kenali organisme pengganggu tanaman terlebih dahulu. Identifikasi hama, penyakit, atau gulma membantu memastikan tindakan yang dipilih memang ditujukan pada masalah yang diamati.',
+    actions:[
+      {label:'🐛 Hama',go:'pests'},
+      {label:'🦠 Penyakit',go:'disease'},
+      {label:'🌿 Gulma',go:'weed'}
+    ]
+  },
+  mutu: {
+    icon:'🛡️',
+    title:'Tepat Mutu',
+    text:'Gunakan produk yang kualitasnya baik, tidak rusak, tidak kedaluwarsa, bukan produk palsu, serta memiliki label yang dapat dibaca. Informasi pada label menjadi bagian penting dalam penggunaan yang aman.',
+    actions:[
+      {label:'🧴 Buka Database Pestisida',go:'pesticides'}
+    ]
+  },
+  jenis: {
+    icon:'🧪',
+    title:'Tepat Jenis Pestisida',
+    text:'Jenis pestisida harus sesuai dengan OPT sasaran dan tanaman yang dilindungi. Jangan menentukan pilihan hanya berdasarkan nama dagang; periksa bahan aktif, sasaran, label, dan klasifikasi MoA.',
+    actions:[
+      {label:'🧴 Database Pestisida',go:'pesticides'},
+      {label:'🧬 Bahan Aktif & MoA',go:'explore'}
+    ]
+  },
+  waktu: {
+    icon:'⏱️',
+    title:'Tepat Waktu Penggunaan',
+    text:'Waktu aplikasi perlu mempertimbangkan hasil pengamatan OPT, tingkat serangan, fase tanaman, kondisi lingkungan, serta ketentuan label produk. Cuaca dapat membantu membaca kondisi lingkungan, tetapi bukan pengganti label.',
+    actions:[
+      {label:'🌦️ Weather & Spray Assist',go:'weather'},
+      {label:'🌾 Crop Guideline',go:'crop-guidelines'}
+    ]
+  },
+  dosis: {
+    icon:'📏',
+    title:'Tepat Dosis / Konsentrasi',
+    text:'Gunakan dosis atau konsentrasi sesuai label produk dan hasil kalibrasi yang relevan. Kalkulator Crop Expert hanya membantu menghitung angka yang dimasukkan pengguna dan tidak menetapkan dosis penggunaan.',
+    actions:[
+      {label:'🧮 Calculator Suite',go:'calculators'}
+    ]
+  },
+  cara: {
+    icon:'💧',
+    title:'Tepat Cara Penggunaan',
+    text:'Metode penggunaan mengikuti karakteristik produk dan formulasi, misalnya penyemprotan, perlakuan benih, penaburan, pencelupan, atau metode lain yang tercantum pada label. Gunakan APD yang sesuai.',
+    actions:[
+      {label:'🛡️ Lihat Panduan APD',ppe:'head'}
+    ]
+  }
+};
+
+const ppeItems = {
+  head:{
+    icon:'🪖',
+    title:'Pelindung Kepala',
+    text:'Melindungi kepala dari kontak atau percikan bahan selama kegiatan aplikasi dan penanganan.'
+  },
+  eyes:{
+    icon:'🥽',
+    title:'Pelindung Mata',
+    text:'Membantu mencegah percikan atau aerosol mengenai mata. Pilih pelindung yang sesuai dengan risiko pekerjaan.'
+  },
+  respiratory:{
+    icon:'😷',
+    title:'Pelindung Pernapasan',
+    text:'Gunakan perlindungan pernapasan yang sesuai dengan petunjuk label dan risiko paparan. Masker biasa tidak otomatis setara dengan respirator.'
+  },
+  hands:{
+    icon:'🧤',
+    title:'Sarung Tangan',
+    text:'Tangan sering menjadi bagian tubuh yang berisiko kontak langsung saat mencampur, memindahkan, atau membersihkan peralatan.'
+  },
+  body:{
+    icon:'🥼',
+    title:'Pakaian Pelindung',
+    text:'Pakaian panjang atau pakaian pelindung membantu mengurangi kontak bahan dengan kulit dan pakaian sehari-hari.'
+  },
+  feet:{
+    icon:'🥾',
+    title:'Pelindung Kaki',
+    text:'Sepatu atau boot yang sesuai membantu mengurangi risiko kontak bahan dengan kaki dan bagian bawah tubuh.'
+  }
+};
+
+function renderStewardship(){
+  const detail=$('#stewardshipDetail');
+  const ppeDetail=$('#ppeDetail');
+  if(!detail)return;
+
+  const key=state.stewardshipKey||'sasaran';
+  const item=stewardshipItems[key]||stewardshipItems.sasaran;
+
+  $('#stewardshipSix button').forEach(b=>{
+    b.classList.toggle('active',b.dataset.stewardship===key);
+  });
+
+  detail.innerHTML=`
+    <div class="stewardship-detail-icon">${item.icon}</div>
+    <div class="stewardship-detail-copy">
+      <span class="eyebrow">PRINSIP 6 TEPAT</span>
+      <h3>${item.title}</h3>
+      <p>${item.text}</p>
+      <div class="stewardship-actions">
+        ${item.actions.map(a=>a.go
+          ? `<button class="secondary-btn" data-go="${a.go}">${a.label}</button>`
+          : `<button class="secondary-btn" data-ppe="${a.ppe}">${a.label}</button>`
+        ).join('')}
+      </div>
+    </div>
+  `;
+
+  $('#stewardshipSix button').forEach(b=>{
+    b.onclick=()=>{
+      state.stewardshipKey=b.dataset.stewardship;
+      renderStewardship();
+    };
+  });
+
+  detail.querySelectorAll('[data-go]').forEach(b=>{
+    b.onclick=()=>showScreen(b.dataset.go);
+  });
+
+  detail.querySelectorAll('[data-ppe]').forEach(b=>{
+    b.onclick=()=>{
+      state.ppeKey=b.dataset.ppe;
+      renderStewardship();
+      renderPpeDetail();
+    };
+  });
+
+  $('#ppeGrid button').forEach(b=>{
+    b.classList.toggle('active',b.dataset.ppe===(state.ppeKey||'head'));
+    b.onclick=()=>{
+      state.ppeKey=b.dataset.ppe;
+      renderPpeDetail();
+    };
+  });
+
+  renderPpeDetail();
+
+  $('.stewardship-moa-grid [data-go]').forEach(b=>{
+    b.onclick=()=>showScreen(b.dataset.go);
+  });
+}
+
+function renderPpeDetail(){
+  const root=$('#ppeDetail');
+  if(!root)return;
+
+  const key=state.ppeKey||'head';
+  const item=ppeItems[key]||ppeItems.head;
+
+  root.innerHTML=`
+    <div class="ppe-detail-icon">${item.icon}</div>
+    <div>
+      <span class="eyebrow">APD</span>
+      <h3>${item.title}</h3>
+      <p>${item.text}</p>
+    </div>
+  `;
+}
+
 function showScreen(id,opts={}){
   if(opts.history!==false) pushNav(id);
   $$('.screen').forEach(s=>s.classList.toggle('active-screen',s.id===id));
   $$('.bottom-nav button').forEach(b=>b.classList.toggle('active',b.dataset.go===id));
-  state.screen=id; if(id==='explore')render();
-  if(id==='types')renderTypes(); if(id==='calculators'&&window.renderCalculator)window.renderCalculator(); if(id==='pests')renderPests(); if(id==='formulations')renderFormulations(); if(id==='knowledge')renderKnowledge(); if(id==='sources')renderSources(); if(id==='library')renderLibrary(); if(id==='pesticides')renderPesticides(); if(id==='nutrition')renderNutrition(); if(id==='crop-guidelines')renderCropGuidelines();
+  state.screen=id; if(id==='explore')render(); if(id==='stewardship')renderStewardship();
+  if(id==='pesticide-moa')renderPesticideMoa(); if(id==='types')renderTypes(); if(id==='disease')renderDiseases(); if(id==='weed')renderWeeds(); if(id==='calculators'&&window.renderCalculator)window.renderCalculator(); if(id==='pests')renderPests(); if(id==='formulations')renderFormulations(); if(id==='knowledge')renderKnowledge(); if(id==='sources')renderSources(); if(id==='library')renderLibrary(); if(id==='pesticides')renderPesticides(); if(id==='nutrition')renderNutrition(); if(id==='crop-guidelines')renderCropGuidelines();
   window.scrollTo({top:0,behavior:'smooth'});
 }
 function setCommittee(c){state.committee=c;state.moaView='ai';state.group='ALL';state.search='';$('#search').value='';$$('.committee-tabs button').forEach(x=>x.classList.toggle('active',x.dataset.c===c));render()}
@@ -713,7 +957,7 @@ $$('[data-go]').forEach(b=>b.addEventListener('click',()=>{
 }));
 $$('.committee-tabs button').forEach(b=>b.addEventListener('click',()=>setCommittee(b.dataset.c)));
 $$('.mini-tabs button[data-type]').forEach(b=>b.addEventListener('click',()=>{state.type=b.dataset.type;$$('.mini-tabs button[data-type]').forEach(x=>x.classList.toggle('active',x===b));renderTypes()}));
-$$('.pest-tabs button').forEach(b=>b.addEventListener('click',()=>{state.pestFilter=b.dataset.pestFilter;renderPests()}));
+$$('#diseaseTabs button[data-disease-filter]').forEach(b=>b.addEventListener('click',()=>{state.diseaseFilter=b.dataset.diseaseFilter;renderDiseases()})); $$('#weedTabs button[data-weed-filter]').forEach(b=>b.addEventListener('click',()=>{state.weedFilter=b.dataset.weedFilter;renderWeeds()}));
 $('#search').addEventListener('input',e=>{state.search=e.target.value;state.moaView==='emerging'?renderEmerging():renderList()});$('#clearSearch').addEventListener('click',()=>{$('#search').value='';state.search='';state.moaView==='emerging'?renderEmerging():renderList()});$('#focusSearch').addEventListener('click',()=>$('#search').focus());
 $('#optSearch').addEventListener('input',e=>{
   const q=e.target.value.toLowerCase();
@@ -729,6 +973,7 @@ $('#openAbout').addEventListener('click',()=>showScreen('about'));
 $('#openSources').addEventListener('click',()=>showScreen('sources'));
 $('#openKnowledge').addEventListener('click',()=>showScreen('knowledge'));
 $('#openLibrary').addEventListener('click',()=>showScreen('library'));
+$('#openPesticideMoa').addEventListener('click',()=>showScreen('pesticide-moa'));
 $('#openPesticides').addEventListener('click',()=>showScreen('pesticides'));
 $('#librarySearch').addEventListener('input',e=>{state.librarySearch=e.target.value;renderLibrary()});
 $('#clearLibrarySearch').addEventListener('click',()=>{$('#librarySearch').value='';state.librarySearch='';renderLibrary()});
@@ -760,6 +1005,9 @@ $('#copyScanPromptBtn').addEventListener('click',copyScanPrompt);
 $('#installBtn').addEventListener('click',async()=>{if(state.deferredPrompt){await state.deferredPrompt.prompt();state.deferredPrompt=null}else alert('Gunakan menu Chrome → Tambahkan ke layar utama untuk memasang aplikasi.')});
 window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();state.deferredPrompt=e;$('#installBtn').hidden=false});
 window.addEventListener('appinstalled',()=>$('#installBtn').hidden=true);
-if('serviceWorker'in navigator)navigator.serviceWorker.register('service-worker.js').catch(()=>{});
+if('serviceWorker' in navigator){
+  navigator.serviceWorker.addEventListener('controllerchange',()=>{if(!sessionStorage.getItem('ce-sw-reloaded-v024')){sessionStorage.setItem('ce-sw-reloaded-v024','1');location.reload();}});
+  navigator.serviceWorker.register('service-worker.js?v=0.24.0',{updateViaCache:'none'}).then(reg=>reg.update()).catch(()=>{});
+}
 initHistory();
 load().catch(e=>console.error(e));
