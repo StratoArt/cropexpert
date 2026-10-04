@@ -61,3 +61,7 @@
 - Merged Step 1–9 refactor services into the latest pestiapps baseline.
 - Preserved the latest `js/weather.js` unchanged.
 - Kept the latest application/data/media baseline as the source of truth.
+## Refactor — State Manager
+- `js/app.js` now consumes `CropExpertStateService` instead of creating its own parallel state object.
+- `js/services/state-service.js` is loaded before `app.js` and becomes the single owner of application state.
+- No Weather logic or data loading behavior was intentionally changed.
